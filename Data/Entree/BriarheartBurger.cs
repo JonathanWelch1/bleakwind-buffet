@@ -11,6 +11,9 @@ namespace BleakwindBuffet.Data.Entrees
 {
     public class BriarheartBurger
     {
+        /// <summary>
+        /// private backing variables
+        /// </summary>
         private double price = 0;
         private uint calories = 0;
         private List<string> instructions;
@@ -20,44 +23,62 @@ namespace BleakwindBuffet.Data.Entrees
         private bool pickle = true;
         private bool cheese = true;
 
+        /// <summary>
+        /// Getter  and setter for backing var
+        /// </summary>
         public bool Cheese
         {
             get { return cheese; }
             set { pickle = value; }
         }
-
+        /// <summary>
+        /// Getter  and setter for backing var
+        /// </summary>
         public bool Pickle
         {
             get { return pickle; }
             set { pickle = value; }
         }
-
+        /// <summary>
+        /// Getter  and setter for backing var
+        /// </summary>
         public bool Mustard
         { get { return mustard; } set { mustard = value; } }
-
+        /// <summary>
+        /// Getter  and setter for backing var
+        /// </summary>
         public bool Bun
         {
             get { return bun; }
             set { bun = value; }
         }
+        /// <summary>
+        /// Getter  and setter for backing var
+        /// </summary>
         public bool Ketchup
         {
             get { return ketchup; }
             set { ketchup = value; }
         }
-
+        /// <summary>
+        /// Getter  and setter for backing var
+        /// </summary>
         public double Price
         {
             get { return price; }
             set { price = 6.32; }
         }
-
+        /// <summary>
+        /// Getter  and setter for backing var
+        /// </summary>
         public uint Calories
         {
             get { return calories; }
             set { calories = 743; }
         }
-
+        /// <summary>
+        /// Getter  and setter for backing var
+        /// </summary>
         public List<string> SpecialInstructions
         {
             get
@@ -67,6 +88,7 @@ namespace BleakwindBuffet.Data.Entrees
                 {
                     instructions.Add("Hold bun");
                 }
+
                 if (!ketchup)
                 {
                     instructions.Add("Hold ketchup");
@@ -86,7 +108,7 @@ namespace BleakwindBuffet.Data.Entrees
                 return instructions;
             }
         }
-
+        // fix dis
         public override string ToString()
         {
             return "Briarheart Burger";

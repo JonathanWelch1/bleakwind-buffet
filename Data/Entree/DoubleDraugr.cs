@@ -1,7 +1,7 @@
 ﻿/*
  * Author: Jonathan Welch
- * Class name: ThalmorTriple.cs
- * Purpose: Class used to represent the Thalmor Triple
+ * Class name: DoubleDraugr.cs
+ * Purpose: Class used to represent the Double Draugr
  */
 using System;
 using System.Collections.Generic;
@@ -9,8 +9,11 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
-    public class ThalmorTriple
+    public class DoubleDraugr
     {
+        /// <summary>
+        /// private backing variables
+        /// </summary>
         private double price = 0;
         private uint calories = 0;
         private List<string> instructions;
@@ -22,77 +25,88 @@ namespace BleakwindBuffet.Data.Entrees
         private bool tomato = true;
         private bool lettuce = true;
         private bool mayo = true;
-        private bool bacon = true;
-        private bool egg = true;
 
-
+        /// <summary>
+        /// Getter  and setter for backing var
+        /// </summary>
         public bool Cheese
         {
             get { return cheese; }
             set { pickle = value; }
         }
-
+        /// <summary>
+        /// Getter  and setter for backing var
+        /// </summary>
         public bool Pickle
         {
             get { return pickle; }
             set { pickle = value; }
         }
-
+        /// <summary>
+        /// Getter  and setter for backing var
+        /// </summary>
         public bool Mustard
         { get { return mustard; } set { mustard = value; } }
-
+        /// <summary>
+        /// Getter  and setter for backing var
+        /// </summary>
         public bool Bun
         {
             get { return bun; }
             set { bun = value; }
         }
+        /// <summary>
+        /// Getter  and setter for backing var
+        /// </summary>
         public bool Ketchup
         {
             get { return ketchup; }
             set { ketchup = value; }
         }
-
+        /// <summary>
+        /// Getter  and setter for backing var
+        /// </summary>
         public bool Tomato
         {
             get { return tomato; }
             set { tomato = value; }
         }
-
+        /// <summary>
+        /// Getter  and setter for backing var
+        /// </summary>
         public bool Mayo
         {
             get { return mayo; }
             set { mayo = value; }
         }
-
+        /// <summary>
+        /// Getter  and setter for backing var
+        /// </summary>
         public bool Lettuce
         {
             get { return lettuce; }
             set { lettuce = value; }
         }
-        public bool Bacon
-        {
-            get { return bacon; }
-            set { bacon = value; }
-        }
-        public bool Egg
-        {
-            get { return egg; }
-            set { egg = value; }
-        }
-
+        /// <summary>
+        /// Getter  and setter for backing var
+        /// </summary>
         public double Price
         {
             get { return price; }
-            set { price = 8.32; }
+            set { price = 7.32; }
         }
-
+        /// <summary>
+        /// Getter  and setter for backing var
+        /// </summary>
         public uint Calories
         {
             get { return calories; }
-            set { calories = 943; }
+            set { calories = 843; }
         }
 
-
+        /// <summary>
+        /// Getter  and setter for backing var
+        /// </summary>
         public List<string> SpecialInstructions
         {
             get
@@ -130,21 +144,13 @@ namespace BleakwindBuffet.Data.Entrees
                 {
                     instructions.Add("Hold mayo");
                 }
-                if (!bacon)
-                {
-                    instructions.Add("Hold bacon");
-                }
-                if (!egg)
-                {
-                    instructions.Add("Hold egg");
-                }
                 return instructions;
             }
         }
-
+        //fix dis
         public override string ToString()
         {
-            return "Thalmor Triple";
+            return "Double Draugr";
         }
     }
 }

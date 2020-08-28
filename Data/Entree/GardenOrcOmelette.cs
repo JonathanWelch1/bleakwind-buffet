@@ -11,6 +11,9 @@ namespace BleakwindBuffet.Data.Entrees
 {
     public class GardenOrcOmelette
     {
+        /// <summary>
+        /// private backing variables
+        /// </summary>
         private double price = 0;
         private uint calories = 0;
         private List<string> instructions;
@@ -19,39 +22,61 @@ namespace BleakwindBuffet.Data.Entrees
         private bool tomato = true;
         private bool cheddar = true;
 
+
+        /// <summary>
+        /// Getter  and setter for backing var
+        /// </summary>
         public bool Broccoli
         {
             get { return broccoli; }
             set { broccoli = value; }
         }
 
+        /// <summary>
+        /// Getter  and setter for backing var
+        /// </summary>
         public bool Mushrooms
         {
             get { return mushrooms; }
             set { mushrooms = value; }
         }
 
+        /// <summary>
+        /// Getter  and setter for backing var
+        /// </summary>
         public bool Tomato
         { get { return tomato; } set { tomato = value; } }
-
+        
+        /// <summary>
+        /// Getter  and setter for backing var
+        /// </summary>
         public bool Cheddar
         {
             get { return cheddar; }
             set { cheddar = value; }
         }
 
+        /// <summary>
+        /// Getter  and setter for backing var
+        /// </summary>
         public double Price
         {
             get { return price; }
             set { price = 4.57; }
         }
 
+        /// <summary>
+        /// Getter  and setter for backing var
+        /// </summary>
         public uint Calories
         {
             get { return calories; }
             set { calories = 404; }
         }
 
+        /// <summary>
+        /// Getter  and setter for backing var
+        /// </summary>
         public List<string> SpecialInstructions
         {
             get
@@ -76,6 +101,8 @@ namespace BleakwindBuffet.Data.Entrees
                 return instructions;
             }
         }
+
+        //fix dis
         public override string ToString()
         {
             return "Garden Orc Omelette";

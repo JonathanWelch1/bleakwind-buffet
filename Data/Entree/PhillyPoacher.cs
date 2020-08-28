@@ -11,6 +11,9 @@ namespace BleakwindBuffet.Data.Entrees
 {
     public class PhillyPoacher
     {
+        /// <summary>
+        /// private backing variables
+        /// </summary>
         private double price = 0;
         private uint calories = 0;
         private List<string> instructions;
@@ -24,12 +27,18 @@ namespace BleakwindBuffet.Data.Entrees
             set { sirloin = value; }
         }
 
+        /// <summary>
+        /// Getter  and setter for backing var
+        /// </summary>
         public bool Onion
         {
             get { return onion; }
             set { onion = value; }
         }
 
+        /// <summary>
+        /// Getter  and setter for backing var
+        /// </summary>
         public bool Roll
         { get { return roll; } set { roll = value; } }
 
@@ -39,12 +48,18 @@ namespace BleakwindBuffet.Data.Entrees
             set { price = 7.23; }
         }
 
+        /// <summary>
+        /// Getter  and setter for backing var
+        /// </summary>
         public uint Calories
         {
             get { return calories; }
             set { calories = 784; }
         }
 
+        /// <summary>
+        /// Getter  and setter for backing var
+        /// </summary>
         public List<string> SpecialInstructions
         {
             get
@@ -65,6 +80,7 @@ namespace BleakwindBuffet.Data.Entrees
                 return instructions;
             }
         }
+        //fix dis
         public override string ToString()
         {
             return "Philly Poacher";

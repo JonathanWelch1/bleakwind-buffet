@@ -11,6 +11,9 @@ namespace BleakwindBuffet.Data.Entrees
 {
     public class SmokehouseSkeleton
     {
+        /// <summary>
+        /// private backing variables
+        /// </summary>
         private double price = 0;
         private uint calories = 0;
         private List<string> instructions;
@@ -19,39 +22,60 @@ namespace BleakwindBuffet.Data.Entrees
         private bool hashbrowns = true;
         private bool pancake = true;
 
+        /// <summary>
+        /// Getter  and setter for backing var
+        /// </summary>
         public bool SausageLink
         {
             get { return sausagelink; }
             set { sausagelink = value; }
         }
 
+        /// <summary>
+        /// Getter  and setter for backing var
+        /// </summary>
         public bool Egg
         {
             get { return egg; }
             set { egg = value; }
         }
 
+        /// <summary>
+        /// Getter  and setter for backing var
+        /// </summary>
         public bool Hashbrowns
         { get { return hashbrowns; } set { hashbrowns = value; } }
 
+        /// <summary>
+        /// Getter  and setter for backing var
+        /// </summary>
         public bool Pancake
         {
             get { return pancake; }
             set { pancake = value; }
         }
 
+        /// <summary>
+        /// Getter  and setter for backing var
+        /// </summary>
         public double Price
         {
             get { return price; }
             set { price = 5.32; }
         }
 
+        /// <summary>
+        /// Getter  and setter for backing var
+        /// </summary>
         public uint Calories
         {
             get { return calories; }
             set { calories = 602; }
         }
 
+        /// <summary>
+        /// Getter  and setter for backing var
+        /// </summary>
         public List<string> SpecialInstructions
         {
             get
@@ -76,6 +100,7 @@ namespace BleakwindBuffet.Data.Entrees
                 return instructions;
             }
         }
+        //fix dis
         public override string ToString()
         {
             return "Smokehouse Skeleton";
