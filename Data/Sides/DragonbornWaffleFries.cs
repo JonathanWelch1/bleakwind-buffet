@@ -17,27 +17,26 @@ namespace BleakwindBuffet.Data.Sides
         /// </summary>
         private double price;
         private uint calories;
-        private Size currentSize = Size.Small;
-
+        private Size size = Size.Small;
+        public Size Size
+        { get { return size; } set { size = value; } }
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
         public double Price
         {
-            get { return price; }
-            set
-            {
-                if (currentSize == Size.Small)
+            get {
+                if (size == Size.Small)
                 {
-                    price = 0.42;
+                    return price = 0.42;
                 }
-                else if (currentSize == Size.Medium)
+                else if (size == Size.Medium)
                 {
-                    price = 0.76;
+                    return price = 0.76;
                 }
                 else
                 {
-                    price = 0.96;
+                    return price = 0.96;
                 }
             }
         }
@@ -46,27 +45,24 @@ namespace BleakwindBuffet.Data.Sides
         /// </summary>
         public uint Calories
         {
-            get { return calories; }
-            set
-            {
-                if (currentSize == Size.Small)
+            get {
+                if (size == Size.Small)
                 {
-                    calories = 77;
+                    return calories = 77;
                 }
-                else if (currentSize == Size.Medium)
+                else if (size == Size.Medium)
                 {
-                    calories = 89;
+                    return calories = 89;
                 }
                 else
                 {
-                    calories = 100;
+                    return calories = 100;
                 }
             }
         }
-        //Fix dis
         public override string ToString()
         {
-            return base.ToString();
+            return size.ToString() + " Dragonborn Waffle Fries";
         }
     }
 }

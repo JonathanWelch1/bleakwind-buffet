@@ -17,26 +17,27 @@ namespace BleakwindBuffet.Data.Sides
         /// </summary>
         private double price;
         private uint calories;
-        private Size currentSize = Size.Small;
+        private Size size = Size.Small;
+
+        public Size Size
+        { get { return size; } set { size = value; } }
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
         public double Price
         {
-            get { return price; }
-            set
-            {
-                if (currentSize == Size.Small)
+            get { 
+                if (size == Size.Small)
                 {
-                    price = 1.22;
+                    return price = 1.22;
                 }
-                else if (currentSize == Size.Medium)
+                else if (size == Size.Medium)
                 {
-                    price = 1.58;
+                    return price = 1.58;
                 }
                 else
                 {
-                    price = 1.93;
+                    return price = 1.93;
                 }
             }
         }
@@ -45,27 +46,24 @@ namespace BleakwindBuffet.Data.Sides
         /// </summary>
         public uint Calories
         {
-            get { return calories; }
-            set
-            {
-                if (currentSize == Size.Small)
+            get { 
+                if (size == Size.Small)
                 {
-                    calories = 105;
+                    return calories = 105;
                 }
-                else if (currentSize == Size.Medium)
+                else if (size == Size.Medium)
                 {
-                    calories = 142;
+                    return calories = 142;
                 }
                 else
                 {
-                    calories = 179;
+                    return calories = 179;
                 }
             }
         }
-        //Fix dis
         public override string ToString()
         {
-            return base.ToString();
+            return size.ToString() + " Mad Otar Grits";
         }
     }
 }

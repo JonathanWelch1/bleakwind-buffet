@@ -32,7 +32,7 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Cheese
         {
             get { return cheese; }
-            set { pickle = value; }
+            set { cheese = value; }
         }
         /// <summary>
         /// Getter  and setter for backing var
@@ -92,16 +92,14 @@ namespace BleakwindBuffet.Data.Entrees
         /// </summary>
         public double Price
         {
-            get { return price; }
-            set { price = 7.32; }
+            get { return price = 7.32; }
         }
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
         public uint Calories
         {
-            get { return calories; }
-            set { calories = 843; }
+            get { return calories =843; }
         }
 
         /// <summary>
@@ -147,7 +145,6 @@ namespace BleakwindBuffet.Data.Entrees
                 return instructions;
             }
         }
-        //fix dis
         public override string ToString()
         {
             return "Double Draugr";

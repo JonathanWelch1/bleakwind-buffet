@@ -34,7 +34,7 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Cheese
         {
             get { return cheese; }
-            set { pickle = value; }
+            set { cheese = value; }
         }
         /// <summary>
         /// Getter  and setter for backing var
@@ -110,16 +110,15 @@ namespace BleakwindBuffet.Data.Entrees
         /// </summary>
         public double Price
         {
-            get { return price; }
-            set { price = 8.32; }
+            get { return price=8.32; }
+
         }
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
         public uint Calories
         {
-            get { return calories; }
-            set { calories = 943; }
+            get { return calories=943; }
         }
 
         /// <summary>

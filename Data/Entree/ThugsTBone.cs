@@ -22,16 +22,14 @@ namespace BleakwindBuffet.Data.Entrees
         /// </summary>
         public double Price
         {
-            get { return price; }
-            set { price = 6.44; }
+            get { return price=6.44; }
         }
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
         public uint Calories
         {
-            get { return calories; }
-            set { calories = 982; }
+            get { return calories=982; }
         }
         /// <summary>
         /// Getter  and setter for backing var

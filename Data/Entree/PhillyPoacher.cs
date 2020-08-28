@@ -44,8 +44,7 @@ namespace BleakwindBuffet.Data.Entrees
 
         public double Price
         {
-            get { return price; }
-            set { price = 7.23; }
+            get { return price = 7.23; }
         }
 
         /// <summary>
@@ -53,8 +52,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// </summary>
         public uint Calories
         {
-            get { return calories; }
-            set { calories = 784; }
+            get { return calories = 784; }
         }
 
         /// <summary>
@@ -80,7 +78,6 @@ namespace BleakwindBuffet.Data.Entrees
                 return instructions;
             }
         }
-        //fix dis
         public override string ToString()
         {
             return "Philly Poacher";

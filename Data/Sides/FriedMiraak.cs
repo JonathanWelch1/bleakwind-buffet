@@ -17,27 +17,26 @@ namespace BleakwindBuffet.Data.Sides
         /// </summary>
         private double price;
         private uint calories;
-        private Size currentSize = Size.Small;
-
+        private Size size = Size.Small;
+        public Size Size
+        { get { return size; } set { size = value; } }
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
         public double Price
         {
-            get { return price; }
-            set
-            {
-                if (currentSize == Size.Small)
+            get { 
+                if (size == Size.Small)
                 {
-                    price = 1.78;
+                    return price = 1.78;
                 }
-                else if (currentSize == Size.Medium)
+                else if (size == Size.Medium)
                 {
-                    price = 2.01;
+                    return price = 2.01;
                 }
                 else
                 {
-                    price = 2.88;
+                    return price = 2.88;
                 }
             }
         }
@@ -50,11 +49,11 @@ namespace BleakwindBuffet.Data.Sides
             get { return calories; }
             set
             {
-                if (currentSize == Size.Small)
+                if (size == Size.Small)
                 {
                     calories = 151;
                 }
-                else if (currentSize == Size.Medium)
+                else if (size == Size.Medium)
                 {
                     calories = 236;
                 }
@@ -64,10 +63,9 @@ namespace BleakwindBuffet.Data.Sides
                 }
             }
         }
-        //Fix dis
         public override string ToString()
         {
-            return base.ToString();
+            return size.ToString() + " Fried Miraak";
         }
     }
 }

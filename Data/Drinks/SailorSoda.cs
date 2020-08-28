@@ -14,30 +14,29 @@ namespace BleakwindBuffet.Data.Drinks
         private double price;
         private uint calories;
         private List<string> instructions;
-        private Size currentSize = Size.Small;
-        private Sodaflavor currentFlavor = Sodaflavor.Cherry;
+        private Size size = Size.Small;
+        private Sodaflavor flavor = Sodaflavor.Cherry;
         private bool ice = true;
 
-
+        public Size Size
+        { get { return size; } set { size = value; } }
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
         public double Price
         {
-            get { return price; }
-            set
-            {
-                if (currentSize == Size.Small)
+            get { 
+                if (size == Size.Small)
                 {
-                    price = 1.42;
+                    return price = 1.42;
                 }
-                else if (currentSize == Size.Medium)
+                else if (size == Size.Medium)
                 {
-                    price = 1.74;
+                    return price = 1.74;
                 }
                 else
                 {
-                    price = 2.07;
+                   return price = 2.07;
                 }
             }
         }
@@ -46,20 +45,18 @@ namespace BleakwindBuffet.Data.Drinks
         /// </summary>
         public uint Calories
         {
-            get { return calories; }
-            set
-            {
-                if (currentSize == Size.Small)
+            get { 
+                if (size == Size.Small)
                 {
-                    calories = 117;
+                    return calories = 117;
                 }
-                else if (currentSize == Size.Medium)
+                else if (size == Size.Medium)
                 {
-                    calories = 153;
+                    return calories = 153;
                 }
                 else
                 {
-                    calories = 205;
+                    return calories = 205;
                 }
             }
         }
@@ -94,21 +91,21 @@ namespace BleakwindBuffet.Data.Drinks
         /// </summary>
         public Size CurrentSize
         {
-            get { return currentSize;}
-            set { currentSize = value;}
+            get { return size; }
+            set { size = value;}
         }
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
-        public Sodaflavor CurrentFlavor
+        public Sodaflavor Flavor
         {
-            get { return currentFlavor;}
-            set { currentFlavor = value;}
+            get { return flavor; }
+            set { flavor = value;}
         }
         // look at dis guy
         public override string ToString()
         {
-            return "[Size] [Flavor] Sailor Soda";
+            return size.ToString() + " " +  flavor.ToString() + " Sailor Soda";
         }
     }
 }

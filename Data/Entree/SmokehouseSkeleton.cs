@@ -17,9 +17,9 @@ namespace BleakwindBuffet.Data.Entrees
         private double price = 0;
         private uint calories = 0;
         private List<string> instructions;
-        private bool sausagelink = true;
+        private bool sausageLink = true;
         private bool egg = true;
-        private bool hashbrowns = true;
+        private bool hashBrowns = true;
         private bool pancake = true;
 
         /// <summary>
@@ -27,8 +27,8 @@ namespace BleakwindBuffet.Data.Entrees
         /// </summary>
         public bool SausageLink
         {
-            get { return sausagelink; }
-            set { sausagelink = value; }
+            get { return sausageLink; }
+            set { sausageLink = value; }
         }
 
         /// <summary>
@@ -44,7 +44,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// Getter  and setter for backing var
         /// </summary>
         public bool Hashbrowns
-        { get { return hashbrowns; } set { hashbrowns = value; } }
+        { get { return hashBrowns; } set { hashBrowns = value; } }
 
         /// <summary>
         /// Getter  and setter for backing var
@@ -60,8 +60,8 @@ namespace BleakwindBuffet.Data.Entrees
         /// </summary>
         public double Price
         {
-            get { return price; }
-            set { price = 5.32; }
+            get { return price=5.32; }
+
         }
 
         /// <summary>
@@ -69,8 +69,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// </summary>
         public uint Calories
         {
-            get { return calories; }
-            set { calories = 602; }
+            get { return calories=602; }
         }
 
         /// <summary>
@@ -85,7 +84,7 @@ namespace BleakwindBuffet.Data.Entrees
                 {
                     instructions.Add("Hold pancake");
                 }
-                if (!sausagelink)
+                if (!sausageLink)
                 {
                     instructions.Add("Hold sausagelink");
                 }
@@ -93,7 +92,7 @@ namespace BleakwindBuffet.Data.Entrees
                 {
                     instructions.Add("Hold egg");
                 }
-                if (!hashbrowns)
+                if (!hashBrowns)
                 {
                     instructions.Add("Hold Hashbrowns");
                 }

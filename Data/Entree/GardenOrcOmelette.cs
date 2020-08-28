@@ -61,8 +61,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// </summary>
         public double Price
         {
-            get { return price; }
-            set { price = 4.57; }
+            get { return price = 4.57; }
         }
 
         /// <summary>
@@ -70,8 +69,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// </summary>
         public uint Calories
         {
-            get { return calories; }
-            set { calories = 404; }
+            get { return calories = 404; }
         }
 
         /// <summary>
@@ -102,7 +100,6 @@ namespace BleakwindBuffet.Data.Entrees
             }
         }
 
-        //fix dis
         public override string ToString()
         {
             return "Garden Orc Omelette";

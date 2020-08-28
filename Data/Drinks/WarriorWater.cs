@@ -13,28 +13,29 @@ namespace BleakwindBuffet.Data.Drinks
         private double price;
         private uint calories;
         private List<string> instructions;
-        private Size currentSize = Size.Small;
+        private Size size = Size.Small;
         private bool ice = true;
         private bool lemon = false;
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
+        /// 
+        public Size Size
+        { get { return size; } set { size = value; } }
         public double Price
         {
-            get { return price; }
-            set
-            {
-                if (currentSize == Size.Small)
+            get { 
+                if (size == Size.Small)
                 {
-                    price = 0;
+                    return price = 0;
                 }
-                else if (currentSize == Size.Medium)
+                else if (size == Size.Medium)
                 {
-                    price = 0;
+                    return price = 0;
                 }
                 else
                 {
-                    price = 0;
+                    return price = 0;
                 }
             }
         }
@@ -43,20 +44,18 @@ namespace BleakwindBuffet.Data.Drinks
         /// </summary>
         public uint Calories
         {
-            get { return calories; }
-            set
-            {
-                if (currentSize == Size.Small)
+            get {
+                if (size == Size.Small)
                 {
-                    calories = 0;
+                    return calories = 0;
                 }
-                else if (currentSize == Size.Medium)
+                else if (size == Size.Medium)
                 {
-                    calories = 0;
+                    return calories = 0;
                 }
                 else
                 {
-                    calories = 0;
+                    return calories = 0;
                 }
             }
         }
@@ -93,17 +92,13 @@ namespace BleakwindBuffet.Data.Drinks
                 {
                     instructions.Add("Add Lemon");
                 }
-                /*  if(Decaf)
-                  {
-                      //do stuff
-                  } */
                 return instructions;
             }
         }
         //dis needs fixin
         public override string ToString()
         {
-            return base.ToString();
+            return size.ToString() + " Warrior Water";
         }
     }
 }

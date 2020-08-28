@@ -18,26 +18,28 @@ namespace BleakwindBuffet.Data.Sides
         /// </summary>
         private double price;
         private uint calories;
-        private Size currentSize = Size.Small;
+        private Size size = Size.Small;
+
+        public Size Size
+        { get { return size; } set { size = value; } }
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
         public double Price
         {
-            get { return price; }
-            set
+            get 
             {
-                if (currentSize == Size.Small)
+                if (size == Size.Small)
                 {
-                    price = .93;
+                   return  price = .93;
                 }
-                else if (currentSize == Size.Medium)
+                else if (size == Size.Medium)
                 {
-                    price = 1.28;
+                    return price = 1.28;
                 }
                 else
                 {
-                    price = 1.82;
+                    return price = 1.82;
                 }
             }
         }
@@ -46,27 +48,25 @@ namespace BleakwindBuffet.Data.Sides
         /// </summary>
         public uint Calories
         {
-            get { return calories; }
-            set
-            {
-                if (currentSize == Size.Small)
+            get { 
+                if (size == Size.Small)
                 {
-                    calories = 41;
+                    return calories = 41;
                 }
-                else if (currentSize == Size.Medium)
+                else if (size == Size.Medium)
                 {
-                    calories = 52;
+                   return  calories = 52;
                 }
                 else
                 {
-                    calories = 73;
+                    return calories = 73;
                 }
             }
         }
         //Fix dis
         public override string ToString()
         {
-            return base.ToString();
+            return size.ToString() + " Vokun Salad";
         }
     }
 }

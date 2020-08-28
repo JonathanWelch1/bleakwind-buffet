@@ -13,50 +13,49 @@ namespace BleakwindBuffet.Data.Drinks
         private double price;
         private uint calories;
         private List<string> instructions;
-        private Size currentSize = Size.Small;
+        private Size size = Size.Small;
         private bool ice = false;
+
 
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
         public double Price
         {
-            get { return price; }
-            set
-            {
-                if (currentSize == Size.Small)
+            get { 
+                if (size == Size.Small)
                 {
-                    price = 0.67;
+                   return price = 0.67;
                 }
-                else if (currentSize == Size.Medium)
+                else if (size == Size.Medium)
                 {
-                    price = 0.87;
+                   return price = 0.87;
                 }
                 else
                 {
-                    price = 1.01;
+                   return price = 1.01;
                 }
             }
         }
+        public Size Size
+        { get { return size; } set { size = value; } }
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
         public uint Calories
         {
-            get { return calories; }
-            set
-            {
-                if (currentSize == Size.Small)
+            get { 
+                if (size == Size.Small)
                 {
-                    calories = 44;
+                    return calories = 44;
                 }
-                else if (currentSize == Size.Medium)
+                else if (size == Size.Medium)
                 {
-                    calories = 88;
+                   return calories = 88;
                 }
                 else
                 {
-                    calories = 132;
+                   return calories = 132;
                 }
             }
         }
@@ -86,7 +85,7 @@ namespace BleakwindBuffet.Data.Drinks
         //dis needs fixin
         public override string ToString()
         {
-            return base.ToString();
+            return size.ToString() + " Arentino Apple Juice";
         }
     }
 }
