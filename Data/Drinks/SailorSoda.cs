@@ -18,6 +18,9 @@ namespace BleakwindBuffet.Data.Drinks
         private Sodaflavor flavor = Sodaflavor.Cherry;
         private bool ice = true;
 
+        /// <summary>
+        /// Getter  and setter for backing var
+        /// </summary>
         public Size Size
         { get { return size; } set { size = value; } }
         /// <summary>
@@ -102,7 +105,6 @@ namespace BleakwindBuffet.Data.Drinks
             get { return flavor; }
             set { flavor = value;}
         }
-        // look at dis guy
         public override string ToString()
         {
             return size.ToString() + " " +  flavor.ToString() + " Sailor Soda";

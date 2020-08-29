@@ -45,7 +45,9 @@ namespace BleakwindBuffet.Data.Entrees
         /// Getter  and setter for backing var
         /// </summary>
         public bool Tomato
-        { get { return tomato; } set { tomato = value; } }
+        { get { return tomato; }
+          set { tomato = value; } 
+        }
         
         /// <summary>
         /// Getter  and setter for backing var

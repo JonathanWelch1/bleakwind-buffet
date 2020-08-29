@@ -18,7 +18,9 @@ namespace BleakwindBuffet.Data.Sides
         private double price;
         private uint calories;
         private Size size = Size.Small;
-
+        /// <summary>
+        /// Getter  and setter for backing var
+        /// </summary>
         public Size Size
         { get { return size; } set { size = value; } }
         /// <summary>

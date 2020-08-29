@@ -36,9 +36,16 @@ namespace BleakwindBuffet.Data.Drinks
                    return price = 1.01;
                 }
             }
-        }
+        } 
+
+
+        /// <summary>
+        /// Getter  and setter for backing var
+        /// </summary>
         public Size Size
         { get { return size; } set { size = value; } }
+
+
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
@@ -82,7 +89,6 @@ namespace BleakwindBuffet.Data.Drinks
                 return instructions;
             }
         }
-        //dis needs fixin
         public override string ToString()
         {
             return size.ToString() + " Arentino Apple Juice";

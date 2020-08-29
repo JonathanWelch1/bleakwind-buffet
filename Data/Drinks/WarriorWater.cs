@@ -95,7 +95,6 @@ namespace BleakwindBuffet.Data.Drinks
                 return instructions;
             }
         }
-        //dis needs fixin
         public override string ToString()
         {
             return size.ToString() + " Warrior Water";

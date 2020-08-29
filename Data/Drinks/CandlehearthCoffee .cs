@@ -62,6 +62,9 @@ namespace BleakwindBuffet.Data.Drinks
                 }
             }
         }
+        /// <summary>
+        /// Getter  and setter for backing var
+        /// </summary>
         public Size Size
         { get { return size; }set { size = value; } }
 
