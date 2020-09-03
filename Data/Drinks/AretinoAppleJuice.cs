@@ -5,7 +5,7 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Drinks
 {
-    public class ArentinoAppleJuice
+    public class AretinoAppleJuice
     {
         /// <summary>
         /// private backing variables
