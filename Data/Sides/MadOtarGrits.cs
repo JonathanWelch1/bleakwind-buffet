@@ -18,6 +18,7 @@ namespace BleakwindBuffet.Data.Sides
         private double price;
         private uint calories;
         private Size size = Size.Small;
+        private List<string> instructions;
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
@@ -63,6 +64,18 @@ namespace BleakwindBuffet.Data.Sides
                 }
             }
         }
+        /// <summary>
+        /// Returns an empty list
+        /// </summary>
+        public List<string> SpecialInstructions
+        {
+            get
+            {
+                instructions = new List<string>();
+                return instructions;
+            }
+        }
+
         public override string ToString()
         {
             return size.ToString() + " Mad Otar Grits";

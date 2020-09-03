@@ -43,7 +43,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
-        public bool Hashbrowns
+        public bool HashBrowns
         { get { return hashBrowns; } set { hashBrowns = value; } }
 
         /// <summary>
