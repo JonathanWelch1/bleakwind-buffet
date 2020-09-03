@@ -10,7 +10,7 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Enums
 {
-    public enum Sodaflavor
+    public enum SodaFlavor
     {
         Blackberry,
         Cherry,

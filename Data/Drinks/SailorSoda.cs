@@ -15,7 +15,7 @@ namespace BleakwindBuffet.Data.Drinks
         private uint calories;
         private List<string> instructions;
         private Size size = Size.Small;
-        private Sodaflavor flavor = Sodaflavor.Cherry;
+        private SodaFlavor flavor = SodaFlavor.Cherry;
         private bool ice = true;
 
         /// <summary>
@@ -100,7 +100,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
-        public Sodaflavor Flavor
+        public SodaFlavor Flavor
         {
             get { return flavor; }
             set { flavor = value;}
