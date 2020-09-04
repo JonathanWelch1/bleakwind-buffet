@@ -30,7 +30,7 @@ namespace BleakwindBuffet.Data.Drinks
             
                 if (size == Size.Small)
                 {
-                    return price = 0.85;
+                    return price = 0.75;
                 }
                 else if (size == Size.Medium)
                 {
@@ -106,7 +106,7 @@ namespace BleakwindBuffet.Data.Drinks
                 }
                 if(roomForCream)
                 {
-                    instructions.Add("Add cream");
+                    instructions.Add("Add Cream");
                 }
                 return instructions;
             }

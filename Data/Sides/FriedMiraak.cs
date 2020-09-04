@@ -50,20 +50,18 @@ namespace BleakwindBuffet.Data.Sides
         /// </summary>
         public uint Calories
         {
-            get { return calories; }
-            set
-            {
+            get { 
                 if (size == Size.Small)
                 {
-                    calories = 151;
+                    return calories = 151;
                 }
                 else if (size == Size.Medium)
                 {
-                    calories = 236;
+                    return calories = 236;
                 }
                 else
                 {
-                    calories = 306;
+                    return calories = 306;
                 }
             }
         }

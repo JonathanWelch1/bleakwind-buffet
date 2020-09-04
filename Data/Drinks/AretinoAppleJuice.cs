@@ -25,7 +25,7 @@ namespace BleakwindBuffet.Data.Drinks
             get { 
                 if (size == Size.Small)
                 {
-                   return price = 0.67;
+                   return price = 0.62;
                 }
                 else if (size == Size.Medium)
                 {
@@ -91,7 +91,7 @@ namespace BleakwindBuffet.Data.Drinks
         }
         public override string ToString()
         {
-            return size.ToString() + " Arentino Apple Juice";
+            return size.ToString() + " Aretino Apple Juice";
         }
     }
 }
