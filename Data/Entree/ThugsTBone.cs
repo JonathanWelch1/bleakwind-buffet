@@ -20,6 +20,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
+        /// <returns>The price</returns>
         public double Price
         {
             get { return price=6.44; }
@@ -27,6 +28,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
+        /// <returns>The calories</returns>
         public uint Calories
         {
             get { return calories=982; }
@@ -34,6 +36,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
+        /// <returns>A list of strings</returns>
         public List<string> SpecialInstructions
         {
             get
@@ -42,6 +45,10 @@ namespace BleakwindBuffet.Data.Entrees
                 return instructions;
             }
         }
+        /// <summary>
+        /// A override for the tostring method
+        /// </summary>
+        /// <returns>A string</returns>
         public override string ToString()
         {
             return "Thugs T-Bone";

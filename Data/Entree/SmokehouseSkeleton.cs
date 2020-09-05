@@ -25,6 +25,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
+        /// <returns>A bool for sausage links</returns>
         public bool SausageLink
         {
             get { return sausageLink; }
@@ -34,6 +35,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
+        /// <returns>A bool for egg</returns>
         public bool Egg
         {
             get { return egg; }
@@ -43,12 +45,14 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
+        /// <returns>A bool for Hasbrowns</returns>
         public bool HashBrowns
         { get { return hashBrowns; } set { hashBrowns = value; } }
 
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
+        /// <returns>A bool for pancake</returns>
         public bool Pancake
         {
             get { return pancake; }
@@ -58,6 +62,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
+        /// <returns>A price</returns>
         public double Price
         {
             get { return price=5.32; }
@@ -67,6 +72,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
+        /// <returns>The calories</returns>
         public uint Calories
         {
             get { return calories=602; }
@@ -75,6 +81,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
+        /// <returns>A list of strings</returns>
         public List<string> SpecialInstructions
         {
             get
@@ -99,7 +106,10 @@ namespace BleakwindBuffet.Data.Entrees
                 return instructions;
             }
         }
-        //fix dis
+        /// <summary>
+        /// A override for the tostring method
+        /// </summary>
+        /// <returns>A string</returns>
         public override string ToString()
         {
             return "Smokehouse Skeleton";

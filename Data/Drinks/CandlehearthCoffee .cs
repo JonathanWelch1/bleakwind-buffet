@@ -23,6 +23,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
+        /// <returns>Price for different Size</returns>
         public double Price
         {
             get { 
@@ -45,6 +46,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
+        /// <return>Returns the Calories</return>
         public uint Calories
         {
             get { 
@@ -65,12 +67,14 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
+        /// <returns>Returns size</returns>
         public Size Size
         { get { return size; }set { size = value; } }
 
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
+        /// <returns>returns Ice</returns>
         public bool Ice
         {
             get { return ice; }
@@ -79,6 +83,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
+        /// <returns>Returns RoomForCream</returns>
         public bool RoomForCream
         {
             get { return roomForCream; }
@@ -87,6 +92,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
+        /// <returns>Returns Decaf</returns>
         public bool Decaf
         {
             get { return decaf; }
@@ -95,6 +101,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
+        /// <returns>a list of strings</returns>
         public List<string> SpecialInstructions
         {
             get
@@ -111,6 +118,12 @@ namespace BleakwindBuffet.Data.Drinks
                 return instructions;
             }
         }
+
+        /// <summary>
+        /// Overridest the string
+        /// </summary>
+        /// <returns>Returns with decaf</returns>
+        /// <returns>Returns without decaf</returns>
         public override string ToString()
         {
 

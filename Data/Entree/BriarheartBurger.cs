@@ -26,6 +26,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
+        /// <returns>bool Cheese</returns>
         public bool Cheese
         {
             get { return cheese; }
@@ -34,6 +35,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
+        /// <returns>A bool pickle</returns>
         public bool Pickle
         {
             get { return pickle; }
@@ -42,11 +44,13 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
+        /// <returns>Mustard</returns>
         public bool Mustard
         { get { return mustard; } set { mustard = value; } }
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
+        /// <returns>A bool bun</returns>
         public bool Bun
         {
             get { return bun; }
@@ -55,6 +59,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
+        /// <returns>A bool for ketchup</returns>
         public bool Ketchup
         {
             get { return ketchup; }
@@ -63,6 +68,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
+        /// <returns>The price</returns>
         public double Price
         {
             get { return price = 6.32; }
@@ -70,6 +76,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
+        /// <return>The calories</return>
         public uint Calories
         {
             get { return calories=743; }
@@ -77,6 +84,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
+        /// <returns>A list of string</returns>
         public List<string> SpecialInstructions
         {
             get
@@ -107,6 +115,10 @@ namespace BleakwindBuffet.Data.Entrees
             }
         }
 
+        /// <summary>
+        /// A override for strings
+        /// </summary>
+        /// <returns>A string is reutrned</returns>
         public override string ToString()
         {
             return "Briarheart Burger";

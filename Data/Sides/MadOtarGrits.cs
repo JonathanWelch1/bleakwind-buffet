@@ -22,11 +22,13 @@ namespace BleakwindBuffet.Data.Sides
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
+        /// <returns>A size</returns>
         public Size Size
         { get { return size; } set { size = value; } }
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
+        /// <returns>A price</returns>
         public double Price
         {
             get { 
@@ -47,6 +49,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
+        /// <returns>The calories</returns>
         public uint Calories
         {
             get { 
@@ -67,6 +70,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <summary>
         /// Returns an empty list
         /// </summary>
+        /// <returns>A list of strings</returns>
         public List<string> SpecialInstructions
         {
             get
@@ -75,7 +79,10 @@ namespace BleakwindBuffet.Data.Sides
                 return instructions;
             }
         }
-
+        /// <summary>
+        /// A override for the tostring method
+        /// </summary>
+        /// <returns>A string</returns>
         public override string ToString()
         {
             return size.ToString() + " Mad Otar Grits";

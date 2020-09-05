@@ -23,9 +23,12 @@ namespace BleakwindBuffet.Data.Drinks
         /// </summary>
         public Size Size
         { get { return size; } set { size = value; } }
+
+
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
+        /// <returns>Price for different Size</returns>
         public double Price
         {
             get { 
@@ -46,6 +49,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
+        /// <return>Returns the Calories</return>
         public uint Calories
         {
             get { 
@@ -66,6 +70,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
+        /// <returns>Returns Ice</returns>
         public bool Ice
         {
             get { return ice; }
@@ -74,7 +79,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
-
+        /// <returns>A list of strings</returns>
         public List<string> SpecialInstructions
         {
             get
@@ -88,23 +93,20 @@ namespace BleakwindBuffet.Data.Drinks
             }        
         
         }
-
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
-        public Size CurrentSize
-        {
-            get { return size; }
-            set { size = value;}
-        }
-        /// <summary>
-        /// Getter  and setter for backing var
-        /// </summary>
+        /// <returns>Returns the The flavor</returns>
         public SodaFlavor Flavor
         {
             get { return flavor; }
             set { flavor = value;}
         }
+
+        /// <summary>
+        /// Overrides the string
+        /// </summary>
+        /// <returns>Returns the stirng</returns>
         public override string ToString()
         {
             return size.ToString() + " " +  flavor.ToString() + " Sailor Soda";

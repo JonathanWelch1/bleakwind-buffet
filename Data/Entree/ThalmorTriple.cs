@@ -31,6 +31,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
+        /// <returns>A bool for cheese</returns>
         public bool Cheese
         {
             get { return cheese; }
@@ -39,6 +40,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
+        /// <returns>A bool for pickle</returns>
         public bool Pickle
         {
             get { return pickle; }
@@ -47,11 +49,13 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
+        /// <returns>A bool for mustard</returns>
         public bool Mustard
         { get { return mustard; } set { mustard = value; } }
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
+        /// <returns>A bool for bun</returns>
         public bool Bun
         {
             get { return bun; }
@@ -60,6 +64,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
+        /// <returns>A bool for ketchup</returns>
         public bool Ketchup
         {
             get { return ketchup; }
@@ -68,6 +73,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
+        /// <returns>A bool for tomato</returns>
         public bool Tomato
         {
             get { return tomato; }
@@ -76,6 +82,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
+        /// <returns>a bool for mayo</returns>
         public bool Mayo
         {
             get { return mayo; }
@@ -84,6 +91,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
+        /// <returns>A bool for lettuce</returns>
         public bool Lettuce
         {
             get { return lettuce; }
@@ -92,6 +100,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
+        /// <returns>A bool for bacon</returns>
         public bool Bacon
         {
             get { return bacon; }
@@ -100,6 +109,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
+        /// <returns>A bool for egg</returns>
         public bool Egg
         {
             get { return egg; }
@@ -108,6 +118,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
+        /// <returns>The price</returns>
         public double Price
         {
             get { return price=8.32; }
@@ -116,6 +127,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
+        /// <returns>The calories</returns>
         public uint Calories
         {
             get { return calories=943; }
@@ -124,6 +136,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
+        /// <returns>A list of strings</returns>
         public List<string> SpecialInstructions
         {
             get
@@ -173,6 +186,10 @@ namespace BleakwindBuffet.Data.Entrees
             }
         }
         
+        /// <summary>
+        /// overrides the tostring method
+        /// </summary>
+        /// <returns>A string</returns>
         public override string ToString()
         {
             return "Thalmor Triple";

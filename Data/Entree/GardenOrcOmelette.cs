@@ -26,6 +26,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
+        /// <returns>A bool for broccoli</returns>
         public bool Broccoli
         {
             get { return broccoli; }
@@ -35,6 +36,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
+        /// <returns>A bool for mushrooms</returns>
         public bool Mushrooms
         {
             get { return mushrooms; }
@@ -44,6 +46,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
+        /// <returns>A bool for tomatos</returns>
         public bool Tomato
         { get { return tomato; }
           set { tomato = value; } 
@@ -52,6 +55,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
+        /// <returns>A bool for cheddar</returns>
         public bool Cheddar
         {
             get { return cheddar; }
@@ -61,6 +65,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
+        /// <returns>A Price</returns>
         public double Price
         {
             get { return price = 4.57; }
@@ -69,6 +74,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
+        /// <returns>The calories</returns>
         public uint Calories
         {
             get { return calories = 404; }
@@ -77,6 +83,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
+        /// <returns> A list of strings</returns>
         public List<string> SpecialInstructions
         {
             get
@@ -101,7 +108,10 @@ namespace BleakwindBuffet.Data.Entrees
                 return instructions;
             }
         }
-
+        /// <summary>
+        /// A override for the tostring method
+        /// </summary>
+        /// <returns>A string</returns>
         public override string ToString()
         {
             return "Garden Orc Omelette";
