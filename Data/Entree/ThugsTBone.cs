@@ -9,35 +9,33 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
-    public class ThugsTBone
+    public class ThugsTBone : Entree
     {
         /// <summary>
         /// private backing variables
         /// </summary>
-        private double price = 0;
-        private uint calories = 0;
         private List<string> instructions;
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
         /// <returns>The price</returns>
-        public double Price
+        public override double Price
         {
-            get { return price=6.44; }
+            get { return 6.44; }
         }
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
         /// <returns>The calories</returns>
-        public uint Calories
+        public override uint Calories
         {
-            get { return calories=982; }
+            get { return 982; }
         }
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
         /// <returns>A list of strings</returns>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

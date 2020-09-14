@@ -10,39 +10,32 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Sides
 {
-    public class MadOtarGrits
+    public class MadOtarGrits : Side
     {
         /// <summary>
         /// private backing variables
         /// </summary>
-        private double price;
-        private uint calories;
+
         private Size size = Size.Small;
         private List<string> instructions;
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
-        /// <returns>A size</returns>
-        public Size Size
-        { get { return size; } set { size = value; } }
-        /// <summary>
-        /// Getter  and setter for backing var
-        /// </summary>
         /// <returns>A price</returns>
-        public double Price
+        public override double Price
         {
             get { 
-                if (size == Size.Small)
+                if (Size == Size.Small)
                 {
-                    return price = 1.22;
+                    return 1.22;
                 }
-                else if (size == Size.Medium)
+                else if (Size == Size.Medium)
                 {
-                    return price = 1.58;
+                    return 1.58;
                 }
                 else
                 {
-                    return price = 1.93;
+                    return 1.93;
                 }
             }
         }
@@ -50,20 +43,20 @@ namespace BleakwindBuffet.Data.Sides
         /// Getter  and setter for backing var
         /// </summary>
         /// <returns>The calories</returns>
-        public uint Calories
+        public override uint Calories
         {
             get { 
-                if (size == Size.Small)
+                if (Size == Size.Small)
                 {
-                    return calories = 105;
+                    return 105;
                 }
-                else if (size == Size.Medium)
+                else if (Size == Size.Medium)
                 {
-                    return calories = 142;
+                    return  142;
                 }
                 else
                 {
-                    return calories = 179;
+                    return 179;
                 }
             }
         }
@@ -71,7 +64,7 @@ namespace BleakwindBuffet.Data.Sides
         /// Returns an empty list
         /// </summary>
         /// <returns>A list of strings</returns>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {
@@ -85,7 +78,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <returns>A string</returns>
         public override string ToString()
         {
-            return size.ToString() + " Mad Otar Grits";
+            return Size.ToString() + " Mad Otar Grits";
         }
     }
 }

@@ -9,13 +9,11 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
-    public class BriarheartBurger
+    public class BriarheartBurger : Entree 
     {
         /// <summary>
         /// private backing variables
         /// </summary>
-        private double price = 0;
-        private uint calories = 0;
         private List<string> instructions;
         private bool bun = true;
         private bool ketchup = true;
@@ -69,23 +67,23 @@ namespace BleakwindBuffet.Data.Entrees
         /// Getter  and setter for backing var
         /// </summary>
         /// <returns>The price</returns>
-        public double Price
+        public override double Price
         {
-            get { return price = 6.32; }
+            get { return  6.32; }
         }
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
         /// <return>The calories</return>
-        public uint Calories
+        public override uint Calories
         {
-            get { return calories=743; }
+            get { return 743; }
         }
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
         /// <returns>A list of string</returns>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

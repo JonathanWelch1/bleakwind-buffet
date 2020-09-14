@@ -11,40 +11,32 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Sides
 {
-    public class VokunSalad
+    public class VokunSalad : Side
     {
         /// <summary>
         /// private backing variables
         /// </summary>
-        private double price;
-        private uint calories;
         private Size size = Size.Small;
         private List<string> instructions;
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
-        /// <returns>A size</returns>
-        public Size Size
-        { get { return size; } set { size = value; } }
-        /// <summary>
-        /// Getter  and setter for backing var
-        /// </summary>
         /// <returns>A price</returns>
-        public double Price
+        public override double Price
         {
             get 
             {
-                if (size == Size.Small)
+                if (Size == Size.Small)
                 {
-                   return  price = .93;
+                   return .93;
                 }
-                else if (size == Size.Medium)
+                else if (Size == Size.Medium)
                 {
-                    return price = 1.28;
+                    return 1.28;
                 }
                 else
                 {
-                    return price = 1.82;
+                    return 1.82;
                 }
             }
         }
@@ -52,20 +44,20 @@ namespace BleakwindBuffet.Data.Sides
         /// Getter  and setter for backing var
         /// </summary>
         /// <returns>The calories</returns>
-        public uint Calories
+        public override uint Calories
         {
             get { 
-                if (size == Size.Small)
+                if (Size == Size.Small)
                 {
-                    return calories = 41;
+                    return 41;
                 }
-                else if (size == Size.Medium)
+                else if (Size == Size.Medium)
                 {
-                   return  calories = 52;
+                   return  52;
                 }
                 else
                 {
-                    return calories = 73;
+                    return  73;
                 }
             }
         }
@@ -73,7 +65,7 @@ namespace BleakwindBuffet.Data.Sides
         /// Returns an empty list
         /// </summary>
         /// <returns>A list of strings</returns>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {
@@ -87,7 +79,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <returns>A string</returns>
         public override string ToString()
         {
-            return size.ToString() + " Vokun Salad";
+            return Size.ToString() + " Vokun Salad";
         }
     }
 }

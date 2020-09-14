@@ -11,6 +11,14 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
     public class PhillyPoacherTests
     {
+
+        [Fact]
+        public void ShouldBeAEntree()
+        {
+            PhillyPoacher pp = new PhillyPoacher();
+            Assert.IsAssignableFrom<Entree>(pp);
+        }
+
         [Fact]
         public void ShouldInlcudeSirloinByDefault()
         {
@@ -87,7 +95,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
             pp.Sirloin = includeSirloin;
             pp.Roll = includeRoll;
             pp.Onion = includeOnion;
-            if(!pp.Sirloin && !pp.Roll && pp.Onion)
+            if(!pp.Sirloin && !pp.Roll && !pp.Onion)
             {
                 Assert.Contains("Hold sirloin", pp.SpecialInstructions);
                 Assert.Contains("Hold roll", pp.SpecialInstructions);

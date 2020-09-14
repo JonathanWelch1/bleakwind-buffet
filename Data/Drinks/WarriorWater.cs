@@ -5,45 +5,35 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Drinks
 {
-    public class WarriorWater
+    public class WarriorWater : Drink
     {
         /// <summary>
         /// private backing variables
         /// </summary>
-        private double price;
-        private uint calories;
         private List<string> instructions;
-        private Size size = Size.Small;
         private bool ice = true;
         private bool lemon = false;
 
-
-        /// <summary>
-        /// Getter  and setter for backing var
-        /// </summary>
-        /// <returns>different Size</returns>
-        public Size Size
-        { get { return size; } set { size = value; } }
 
 
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
         /// <returns>Price for different Size</returns>
-        public double Price
+        public override double Price
         {
             get { 
-                if (size == Size.Small)
+                if (Size == Size.Small)
                 {
-                    return price = 0;
+                    return 0;
                 }
-                else if (size == Size.Medium)
+                else if (Size == Size.Medium)
                 {
-                    return price = 0;
+                    return 0;
                 }
                 else
                 {
-                    return price = 0;
+                    return 0;
                 }
             }
         }
@@ -51,20 +41,20 @@ namespace BleakwindBuffet.Data.Drinks
         /// Getter  and setter for backing var
         /// </summary>
         /// <return>Returns the Calories</return>
-        public uint Calories
+        public override uint Calories
         {
             get {
-                if (size == Size.Small)
+                if (Size == Size.Small)
                 {
-                    return calories = 0;
+                    return  0;
                 }
-                else if (size == Size.Medium)
+                else if (Size == Size.Medium)
                 {
-                    return calories = 0;
+                    return  0;
                 }
                 else
                 {
-                    return calories = 0;
+                    return  0;
                 }
             }
         }
@@ -91,7 +81,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// Getter  and setter for backing var
         /// </summary>
         /// <returns>A list of strings</returns>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {
@@ -114,7 +104,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <returns>returns a string</returns>
         public override string ToString()
         {
-            return size.ToString() + " Warrior Water";
+            return Size.ToString() + " Warrior Water";
         }
     }
 }

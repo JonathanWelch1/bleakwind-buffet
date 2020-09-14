@@ -5,66 +5,55 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Drinks
 {
-    public class AretinoAppleJuice
+    public class AretinoAppleJuice : Drink
     {
         /// <summary>
         /// private backing variables
         /// </summary>
-        private double price;
-        private uint calories;
         private List<string> instructions;
-        private Size size = Size.Small;
         private bool ice = false;
+
 
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
         /// <returns>Price for different Size</returns>
-        public double Price
+        public override double Price
         {
             get { 
-                if (size == Size.Small)
+                if (Size == Size.Small)
                 {
-                   return price = 0.62;
+                   return 0.62;
                 }
-                else if (size == Size.Medium)
+                else if (Size == Size.Medium)
                 {
-                   return price = 0.87;
+                   return  0.87;
                 }
                 else
                 {
-                   return price = 1.01;
+                   return 1.01;
                 }
             }
         } 
-
-
         /// <summary>
         /// Getter  and setter for backing var
-        /// </summary>
-        /// <returns>The size</returns>
-        public Size Size
-        { get { return size; } set { size = value; } }
-
-
-        /// <summary>
-        /// Getter  and setter for backing var
+        /// implementing the abstract base class
         /// </summary>
         /// <return>Returns the Calories</return>
-        public uint Calories
+        public override uint Calories
         {
             get { 
-                if (size == Size.Small)
+                if (Size == Size.Small)
                 {
-                    return calories = 44;
+                    return  44;
                 }
-                else if (size == Size.Medium)
+                else if (Size == Size.Medium)
                 {
-                   return calories = 88;
+                   return  88;
                 }
                 else
                 {
-                   return calories = 132;
+                   return  132;
                 }
             }
         }
@@ -81,7 +70,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// Getter  and setter for backing var
         /// </summary>
         /// <returns>A list of strings</returns>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {
@@ -100,7 +89,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <returns>returns a string</returns>
         public override string ToString()
         {
-            return size.ToString() + " Aretino Apple Juice";
+            return Size.ToString() + " Aretino Apple Juice";
         }
     }
 }

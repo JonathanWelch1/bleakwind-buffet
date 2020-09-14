@@ -5,16 +5,13 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Drinks
 {
-    public class CandlehearthCoffee
+    public class CandlehearthCoffee : Drink
     {
 
         /// <summary>
         /// private backing variables
         /// </summary>
-        private double price;
-        private uint calories;
         private List<string> instructions;
-        private Size size = Size.Small;
         private bool ice = false;
         private bool roomForCream = false;
         private bool decaf = false;
@@ -24,22 +21,22 @@ namespace BleakwindBuffet.Data.Drinks
         /// Getter  and setter for backing var
         /// </summary>
         /// <returns>Price for different Size</returns>
-        public double Price
+        public override double Price
         {
             get { 
             
             
-                if (size == Size.Small)
+                if (Size == Size.Small)
                 {
-                    return price = 0.75;
+                    return 0.75;
                 }
-                else if (size == Size.Medium)
+                else if (Size == Size.Medium)
                 {
-                    return price = 1.25;
+                    return 1.25;
                 }
                 else
                 {
-                   return price = 1.75;
+                   return 1.75;
                 }
             }
         }
@@ -47,29 +44,23 @@ namespace BleakwindBuffet.Data.Drinks
         /// Getter  and setter for backing var
         /// </summary>
         /// <return>Returns the Calories</return>
-        public uint Calories
+        public override uint Calories
         {
             get { 
-                if (size == Size.Small)
+                if (Size == Size.Small)
                 {
-                    return calories = 7;
+                    return 7;
                 }
-                else if (size == Size.Medium)
+                else if (Size == Size.Medium)
                 {
-                    return calories = 10;
+                    return  10;
                 }
                 else
                 {
-                    return calories = 20;
+                    return  20;
                 }
             }
         }
-        /// <summary>
-        /// Getter  and setter for backing var
-        /// </summary>
-        /// <returns>Returns size</returns>
-        public Size Size
-        { get { return size; }set { size = value; } }
 
         /// <summary>
         /// Getter  and setter for backing var
@@ -102,7 +93,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// Getter  and setter for backing var
         /// </summary>
         /// <returns>a list of strings</returns>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {
@@ -129,11 +120,11 @@ namespace BleakwindBuffet.Data.Drinks
 
             if (decaf)
             {
-                return size.ToString() + " Decaf Candlehearth Coffee";
+                return Size.ToString() + " Decaf Candlehearth Coffee";
             }
             else
             {
-                return size.ToString() + " Candlehearth Coffee";
+                return Size.ToString() + " Candlehearth Coffee";
             } 
         }
     }

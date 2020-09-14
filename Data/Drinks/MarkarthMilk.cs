@@ -5,13 +5,11 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Drinks
 {
-    public class MarkarthMilk
+    public class MarkarthMilk : Drink
     {
         /// <summary>
         /// private backing variables
         /// </summary>
-        private double price;
-        private uint calories;
         private List<string> instructions;
         private Size size = Size.Small;
         private bool ice = false;
@@ -20,20 +18,20 @@ namespace BleakwindBuffet.Data.Drinks
         /// Getter  and setter for backing var
         /// </summary>
         /// <returns>Price for different Size</returns>
-        public double Price
+        public override double Price
         {
             get {
-                if (size == Size.Small)
+                if (Size == Size.Small)
                 {
-                   return price = 1.05;
+                   return 1.05;
                 }
-                else if (size == Size.Medium)
+                else if (Size == Size.Medium)
                 {
-                   return price = 1.11;
+                   return  1.11;
                 }
                 else
                 {
-                   return price = 1.22;
+                   return 1.22;
                 }
             }
         }
@@ -41,20 +39,20 @@ namespace BleakwindBuffet.Data.Drinks
         /// Getter  and setter for backing var
         /// </summary>
         /// <return>Returns the Calories</return>
-        public uint Calories
+        public override uint Calories
         {
             get {
-                if (size == Size.Small)
+                if (Size == Size.Small)
                 {
-                   return calories = 56;
+                   return 56;
                 }
-                else if (size == Size.Medium)
+                else if (Size == Size.Medium)
                 {
-                   return calories = 72;
+                   return  72;
                 }
                 else
                 {
-                   return calories = 93;
+                   return 93;
                 }
             }
         }
@@ -67,17 +65,12 @@ namespace BleakwindBuffet.Data.Drinks
             get { return ice; }
             set { ice = value; }
         }
-        /// <summary>
-        /// Getter  and setter for backing var
-        /// </summary>
-        /// <returns>Returns Size</returns>
-        public Size Size
-        { get { return size; } set { size = value; } }
+
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
         /// <returns>A list of strings</returns>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {
@@ -95,7 +88,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <returns>Returns a string</returns>
         public override string ToString()
         {
-            return size.ToString() + " Markarth Milk";
+            return Size.ToString() + " Markarth Milk";
         }
     }
 }

@@ -6,43 +6,36 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Drinks
 {
-    public class SailorSoda
+    public class SailorSoda : Drink
     {
         /// <summary>
         /// private backing variables
         /// </summary>
-        private double price;
-        private uint calories;
         private List<string> instructions;
-        private Size size = Size.Small;
         private SodaFlavor flavor = SodaFlavor.Cherry;
         private bool ice = true;
 
-        /// <summary>
-        /// Getter  and setter for backing var
-        /// </summary>
-        public Size Size
-        { get { return size; } set { size = value; } }
+
 
 
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
         /// <returns>Price for different Size</returns>
-        public double Price
+        public override double Price
         {
             get { 
-                if (size == Size.Small)
+                if (Size == Size.Small)
                 {
-                    return price = 1.42;
+                    return 1.42;
                 }
-                else if (size == Size.Medium)
+                else if (Size == Size.Medium)
                 {
-                    return price = 1.74;
+                    return 1.74;
                 }
                 else
                 {
-                   return price = 2.07;
+                   return 2.07;
                 }
             }
         }
@@ -50,20 +43,20 @@ namespace BleakwindBuffet.Data.Drinks
         /// Getter  and setter for backing var
         /// </summary>
         /// <return>Returns the Calories</return>
-        public uint Calories
+        public override uint Calories
         {
             get { 
-                if (size == Size.Small)
+                if (Size == Size.Small)
                 {
-                    return calories = 117;
+                    return 117;
                 }
-                else if (size == Size.Medium)
+                else if (Size == Size.Medium)
                 {
-                    return calories = 153;
+                    return 153;
                 }
                 else
                 {
-                    return calories = 205;
+                    return 205;
                 }
             }
         }
@@ -80,7 +73,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// Getter  and setter for backing var
         /// </summary>
         /// <returns>A list of strings</returns>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {
@@ -109,7 +102,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <returns>Returns the stirng</returns>
         public override string ToString()
         {
-            return size.ToString() + " " +  flavor.ToString() + " Sailor Soda";
+            return Size.ToString() + " " +  flavor.ToString() + " Sailor Soda";
         }
     }
 }

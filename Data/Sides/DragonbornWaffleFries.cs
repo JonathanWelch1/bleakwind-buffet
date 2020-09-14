@@ -10,38 +10,31 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Sides
 {
-    public class DragonbornWaffleFries
+    public class DragonbornWaffleFries : Side
     {
         /// <summary>
         /// private backing variables
         /// </summary>
-        private double price;
-        private uint calories;
-        private Size size = Size.Small;
         private List<string> instructions;
-        /// <summary>
-        /// Getter  and setter for backing var
-        /// </summary>
-        public Size Size
-        { get { return size; } set { size = value; } }
+
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
         /// <returns>The price</returns>
-        public double Price
+        public override double Price
         {
             get {
-                if (size == Size.Small)
+                if (Size == Size.Small)
                 {
-                    return price = 0.42;
+                    return 0.42;
                 }
-                else if (size == Size.Medium)
+                else if (Size == Size.Medium)
                 {
-                    return price = 0.76;
+                    return 0.76;
                 }
                 else
                 {
-                    return price = 0.96;
+                    return 0.96;
                 }
             }
         }
@@ -49,20 +42,20 @@ namespace BleakwindBuffet.Data.Sides
         /// Getter  and setter for backing var
         /// </summary>
         /// <returns>The calories</returns>
-        public uint Calories
+        public override uint Calories
         {
             get {
-                if (size == Size.Small)
+                if (Size == Size.Small)
                 {
-                    return calories = 77;
+                    return  77;
                 }
-                else if (size == Size.Medium)
+                else if (Size == Size.Medium)
                 {
-                    return calories = 89;
+                    return 89;
                 }
                 else
                 {
-                    return calories = 100;
+                    return  100;
                 }
             }
         }
@@ -70,7 +63,7 @@ namespace BleakwindBuffet.Data.Sides
         /// Returns an empty list
         /// </summary>
         /// <returns>A list of strings</returns>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {
@@ -84,7 +77,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <returns>A string</returns>
         public override string ToString()
         {
-            return size.ToString() + " Dragonborn Waffle Fries";
+            return Size.ToString() + " Dragonborn Waffle Fries";
         }
     }
 }
