@@ -5,12 +5,14 @@
  */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
     public class SmokehouseSkeleton : Entree
     {
+        new public event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
         /// private backing variables
         /// </summary>
@@ -27,7 +29,7 @@ namespace BleakwindBuffet.Data.Entrees
         public bool SausageLink
         {
             get { return sausageLink; }
-            set { sausageLink = value; }
+            set { if (sausageLink != value) { sausageLink = value; OnPropertyChange("SausageLink"); }; }
         }
 
         /// <summary>
@@ -37,7 +39,7 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Egg
         {
             get { return egg; }
-            set { egg = value; }
+            set { if (egg != value) { egg = value; OnPropertyChange("Egg"); }; }
         }
 
         /// <summary>
@@ -45,7 +47,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// </summary>
         /// <returns>A bool for Hasbrowns</returns>
         public bool HashBrowns
-        { get { return hashBrowns; } set { hashBrowns = value; } }
+        { get { return hashBrowns; } set { if (hashBrowns != value) { hashBrowns = value; OnPropertyChange("HashBrowns"); }; } }
 
         /// <summary>
         /// Getter  and setter for backing var
@@ -54,7 +56,7 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Pancake
         {
             get { return pancake; }
-            set { pancake = value; }
+            set { if (pancake != value) { pancake = value; OnPropertyChange("Pancake"); }; }
         }
 
         /// <summary>

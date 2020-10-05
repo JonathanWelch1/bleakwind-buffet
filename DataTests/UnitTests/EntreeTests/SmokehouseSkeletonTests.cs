@@ -12,6 +12,65 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
     public class SmokehouseSkeletonTests
     {
 
+        [Fact]
+        public void ChangingSausgageLinkNotifiesProperty()
+        {
+            var ss = new SmokehouseSkeleton();
+
+            Assert.PropertyChanged(ss, "SausageLink", () =>
+            {
+                ss.SausageLink = false;
+            });
+            Assert.PropertyChanged(ss, "SausageLink", () =>
+            {
+                ss.SausageLink = true;
+            });
+        }
+
+        [Fact]
+        public void ChangingEggNotifiesProperty()
+        {
+            var ss = new SmokehouseSkeleton();
+
+            Assert.PropertyChanged(ss, "Egg", () =>
+            {
+                ss.Egg = false;
+            });
+            Assert.PropertyChanged(ss, "Egg", () =>
+            {
+                ss.Egg = true;
+            });
+        }
+
+        [Fact]
+        public void ChangingHashbrownsNotifiesProperty()
+        {
+            var ss = new SmokehouseSkeleton();
+
+            Assert.PropertyChanged(ss, "HashBrowns", () =>
+            {
+                ss.HashBrowns = false;
+            });
+            Assert.PropertyChanged(ss, "HashBrowns", () =>
+            {
+                ss.HashBrowns = true;
+            });
+        }
+
+        [Fact]
+        public void ChangingPancakeNotifiesProperty()
+        {
+            var ss = new SmokehouseSkeleton();
+
+            Assert.PropertyChanged(ss, "Pancake", () =>
+            {
+                ss.Pancake = false;
+            });
+            Assert.PropertyChanged(ss, "Pancake", () =>
+            {
+                ss.Pancake = true;
+            });
+        }
 
         [Fact]
         public void ShouldBeAEntree()

@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Size = BleakwindBuffet.Data.Enums.Size;
 
 namespace PointOfSale.Drinks
 {
@@ -45,6 +46,38 @@ namespace PointOfSale.Drinks
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             mw.swapScreen(new ButtonControl(mw));
+        }
+        void checkboxChecked(object sender, RoutedEventArgs e)
+        {
+            Size s;
+
+            if (sender is CheckBox cb)
+            {
+                switch (cb.Name)
+                {
+                    case "Small":
+                        s = Size.Small;
+                        Small.IsChecked = true;
+                        Medium.IsChecked = false;
+                        Large.IsChecked = false;
+                        break;
+                    case "Medium":
+                        s = Size.Medium;
+                        Small.IsChecked = false;
+                        Medium.IsChecked = true;
+                        Large.IsChecked = false;
+                        break;
+                    case "Large":
+                        s = Size.Large;
+                        Small.IsChecked = false;
+                        Medium.IsChecked = false;
+                        Large.IsChecked = true;
+                        break;
+                    default:
+                        throw new NotImplementedException();
+                }
+
+            }
         }
     }
 }

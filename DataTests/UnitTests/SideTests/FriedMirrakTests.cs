@@ -12,6 +12,50 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
 {
     public class FriedMiraakTests
     {
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangingSizeShouldNotifyStuff(Size size)
+        {
+            var fm = new FriedMiraak();
+            if (size == Size.Small) { fm.Size = Size.Medium; }
+            Assert.PropertyChanged(fm, "Size", () =>
+            {
+                fm.Size = size;
+            });
+
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangingPriceShouldNotifyStuff(Size size)
+        {
+            var fm = new FriedMiraak();
+            if (size == Size.Small) { fm.Size = Size.Medium; }
+            Assert.PropertyChanged(fm, "Price", () =>
+            {
+                fm.Size = size;
+            });
+
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangingCaloriesShouldNotifyStuff(Size size)
+        {
+            var fm = new FriedMiraak();
+            if (size == Size.Small) { fm.Size = Size.Medium; }
+            Assert.PropertyChanged(fm, "Calories", () =>
+            {
+                fm.Size = size;
+            });
+
+        }
         [Fact]
         public void ShouldBeASide()
         {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 
@@ -69,7 +70,14 @@ namespace BleakwindBuffet.Data.Drinks
         public bool Ice
         {
             get { return ice; }
-            set { ice = value; }
+            set
+            {
+                if (ice != value)
+                {
+                    ice = value;
+                    OnPropertyChange("Ice");
+                };
+            }
         }
         /// <summary>
         /// Getter  and setter for backing var
@@ -78,7 +86,7 @@ namespace BleakwindBuffet.Data.Drinks
         public bool RoomForCream
         {
             get { return roomForCream; }
-            set { roomForCream = value; }
+            set { if (roomForCream != value) { roomForCream = value; OnPropertyChange("RoomForCream"); } }
         }
         /// <summary>
         /// Getter  and setter for backing var
@@ -87,7 +95,7 @@ namespace BleakwindBuffet.Data.Drinks
         public bool Decaf
         {
             get { return decaf; }
-            set { decaf = value; }
+            set { if (decaf != value) { decaf = value; OnPropertyChange("Decaf");}; }
         }
         /// <summary>
         /// Getter  and setter for backing var

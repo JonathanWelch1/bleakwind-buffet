@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Drinks
 {
@@ -12,7 +13,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// </summary>
         private List<string> instructions;
         private bool ice = false;
-
+        
 
         /// <summary>
         /// Getter  and setter for backing var
@@ -33,8 +34,10 @@ namespace BleakwindBuffet.Data.Drinks
                 {
                    return 1.01;
                 }
+                throw new NotImplementedException("Should never be reached");
             }
-        } 
+           
+    } 
         /// <summary>
         /// Getter  and setter for backing var
         /// implementing the abstract base class
@@ -55,6 +58,7 @@ namespace BleakwindBuffet.Data.Drinks
                 {
                    return  132;
                 }
+                throw new NotImplementedException("Should never be reached");
             }
         }
         /// <summary>
@@ -64,7 +68,13 @@ namespace BleakwindBuffet.Data.Drinks
         public bool Ice
         {
             get { return ice; }
-            set { ice = value; }
+            set {
+                if (ice != value)
+                {
+                    ice = value; 
+                    OnPropertyChange("Ice");
+                }
+            }
         }
         /// <summary>
         /// Getter  and setter for backing var

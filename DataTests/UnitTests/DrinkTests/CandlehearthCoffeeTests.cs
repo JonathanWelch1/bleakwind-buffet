@@ -14,6 +14,94 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
     public class CandlehearthCoffeeTests
     {
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangingSizeShouldNotifyStuff(Size size)
+        {
+            var CC = new CandlehearthCoffee();
+            if (size == Size.Small) { CC.Size = Size.Medium; }
+            Assert.PropertyChanged(CC, "Size", () =>
+            {
+                CC.Size = size;
+            });
+
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangingPriceShouldNotifyStuff(Size size)
+        {
+            var CC = new CandlehearthCoffee();
+            if (size == Size.Small) { CC.Size = Size.Medium; }
+            Assert.PropertyChanged(CC, "Price", () =>
+            {
+                CC.Size = size;
+            });
+
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangingCaloriesShouldNotifyStuff(Size size)
+        {
+            var CC = new CandlehearthCoffee();
+            if (size == Size.Small) { CC.Size = Size.Medium; }
+            Assert.PropertyChanged(CC, "Calories", () =>
+            {
+                CC.Size = size;
+            });
+
+        }
+        [Fact]
+        public void ChangingIceNotifiesIceProperty()
+        {
+            var CC= new CandlehearthCoffee();
+
+            Assert.PropertyChanged(CC, "Ice", () =>
+            {
+                CC.Ice = true;
+            });
+            Assert.PropertyChanged(CC, "Ice", () =>
+            {
+                CC.Ice = false;
+            });
+        }
+
+        [Fact]
+        public void ChangingRoomForcreamNotifiesIceProperty()
+        {
+            var CC = new CandlehearthCoffee();
+
+            Assert.PropertyChanged(CC, "RoomForCream", () =>
+            {
+                CC.RoomForCream = true;
+            });
+            Assert.PropertyChanged(CC, "RoomForCream", () =>
+            {
+                CC.RoomForCream = false;
+            });
+        }
+        [Fact]
+        public void ChangingDecafNotifiesIceProperty()
+        {
+            var CC = new CandlehearthCoffee();
+
+            Assert.PropertyChanged(CC, "Decaf", () =>
+            {
+                CC.Decaf = true;
+            });
+            Assert.PropertyChanged(CC, "Decaf", () =>
+            {
+                CC.Decaf = false;
+            });
+        }
         [Fact]
         public void ShouldBeADrink()
         {

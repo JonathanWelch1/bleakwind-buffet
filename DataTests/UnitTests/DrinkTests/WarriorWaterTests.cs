@@ -11,6 +11,80 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
     public class WarriorWaterTests
     {
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangingSizeShouldNotifyStuff(Size size)
+        {
+            var WW = new WarriorWater();
+            if (size == Size.Small) { WW.Size = Size.Medium; }
+            Assert.PropertyChanged(WW, "Size", () =>
+            {
+                WW.Size = size;
+            });
+
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangingPriceShouldNotifyStuff(Size size)
+        {
+            var WW = new WarriorWater();
+            if (size == Size.Small) { WW.Size = Size.Medium; }
+            Assert.PropertyChanged(WW, "Price", () =>
+            {
+                WW.Size = size;
+            });
+
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangingCaloriesShouldNotifyStuff(Size size)
+        {
+            var WW = new WarriorWater();
+            if (size == Size.Small) { WW.Size = Size.Medium; }
+            Assert.PropertyChanged(WW, "Calories", () =>
+            {
+                WW.Size = size;
+            });
+
+        }
+        [Fact]
+        public void ChangingIceNotifiesIceProperty()
+        {
+            var WW = new WarriorWater();
+
+            Assert.PropertyChanged(WW, "Ice", () =>
+            {
+                WW.Ice = false;
+            });
+            Assert.PropertyChanged(WW, "Ice", () =>
+            {
+                WW.Ice = true;
+            });
+        }
+
+        [Fact]
+        public void ChangingLemonNotifiesLemonProperty()
+        {
+            var WW = new WarriorWater();
+
+            Assert.PropertyChanged(WW, "Lemon", () =>
+            {
+                WW.Lemon = true;
+            });
+            Assert.PropertyChanged(WW, "Lemon", () =>
+            {
+                WW.Lemon = false;
+            });
+        }
         [Fact]
         public void ShouldBeADrink()
         {

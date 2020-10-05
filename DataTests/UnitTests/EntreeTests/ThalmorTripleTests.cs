@@ -13,6 +13,147 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
     {
 
         [Fact]
+        public void ChangingCheeseNotifiesProperty()
+        {
+            var tt = new ThalmorTriple();
+
+            Assert.PropertyChanged(tt, "Cheese", () =>
+            {
+                tt.Cheese = false;
+            });
+            Assert.PropertyChanged(tt, "Cheese", () =>
+            {
+                tt.Cheese = true;
+            });
+        }
+        [Fact]
+        public void ChangingBunNotifiesProperty()
+        {
+            var tt = new ThalmorTriple();
+
+            Assert.PropertyChanged(tt, "Bun", () =>
+            {
+                tt.Bun = false;
+            });
+            Assert.PropertyChanged(tt, "Bun", () =>
+            {
+                tt.Bun = true;
+            });
+        }
+        [Fact]
+        public void ChangingKetchupNotifiesProperty()
+        {
+            var tt = new ThalmorTriple();
+
+            Assert.PropertyChanged(tt, "Cheese", () =>
+            {
+                tt.Cheese = false;
+            });
+            Assert.PropertyChanged(tt, "Cheese", () =>
+            {
+                tt.Cheese = true;
+            });
+        }
+        [Fact]
+        public void ChangingMustardNotifiesProperty()
+        {
+            var tt = new ThalmorTriple();
+
+            Assert.PropertyChanged(tt, "Mustard", () =>
+            {
+                tt.Mustard = false;
+            });
+            Assert.PropertyChanged(tt, "Mustard", () =>
+            {
+                tt.Mustard = true;
+            });
+        }
+        [Fact]
+        public void ChangingPickleNotifiesProperty()
+        {
+            var tt = new ThalmorTriple();
+
+            Assert.PropertyChanged(tt, "Pickle", () =>
+            {
+                tt.Pickle = false;
+            });
+            Assert.PropertyChanged(tt, "Pickle", () =>
+            {
+                tt.Pickle = true;
+            });
+        }
+        [Fact]
+        public void ChangingTomatoNotifiesProperty()
+        {
+            var tt = new ThalmorTriple();
+
+            Assert.PropertyChanged(tt, "Tomato", () =>
+            {
+                tt.Tomato = false;
+            });
+            Assert.PropertyChanged(tt, "Tomato", () =>
+            {
+                tt.Tomato = true;
+            });
+        }
+        [Fact]
+        public void ChangingLettuceNotifiesProperty()
+        {
+            var tt = new ThalmorTriple();
+
+            Assert.PropertyChanged(tt, "Lettuce", () =>
+            {
+                tt.Lettuce = false;
+            });
+            Assert.PropertyChanged(tt, "Lettuce", () =>
+            {
+                tt.Lettuce = true;
+            });
+        }
+        [Fact]
+        public void ChangingMayoNotifiesProperty()
+        {
+            var tt = new ThalmorTriple();
+
+            Assert.PropertyChanged(tt, "Mayo", () =>
+            {
+                tt.Mayo = false;
+            });
+            Assert.PropertyChanged(tt, "Mayo", () =>
+            {
+                tt.Mayo = true;
+            });
+        }
+        [Fact]
+        public void ChangingBaconNotifiesProperty()
+        {
+            var tt = new ThalmorTriple();
+
+            Assert.PropertyChanged(tt, "Bacon", () =>
+            {
+                tt.Bacon = false;
+            });
+            Assert.PropertyChanged(tt, "Bacon", () =>
+            {
+                tt.Bacon = true;
+            });
+        }
+        [Fact]
+        public void ChangingEggNotifiesProperty()
+        {
+            var tt = new ThalmorTriple();
+
+            Assert.PropertyChanged(tt, "Egg", () =>
+            {
+                tt.Egg = false;
+            });
+            Assert.PropertyChanged(tt, "Egg", () =>
+            {
+                tt.Egg = true;
+            });
+        }
+
+        [Fact]
         public void ShouldBeAEntree()
         {
             ThalmorTriple tt = new ThalmorTriple();

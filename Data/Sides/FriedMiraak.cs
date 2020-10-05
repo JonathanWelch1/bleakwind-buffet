@@ -5,12 +5,13 @@
  */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Sides
 {
-    public class FriedMiraak : Side
+    public class FriedMiraak : Side, INotifyPropertyChanged
     {
         /// <summary>
         /// private backing variables

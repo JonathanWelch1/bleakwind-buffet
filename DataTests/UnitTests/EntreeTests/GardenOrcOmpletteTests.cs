@@ -11,12 +11,68 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
     public class GardenOrcOmeletteTests
     {
+        [Fact]
+        public void ChangingBroccoliNotifiesProperty()
+        {
+            var go = new GardenOrcOmelette();
+
+            Assert.PropertyChanged(go, "Broccoli", () =>
+            {
+                go.Broccoli = false;
+            });
+            Assert.PropertyChanged(go, "Broccoli", () =>
+            {
+                go.Broccoli = true;
+            });
+        }
+        [Fact]
+        public void ChangingMushroomsNotifiesProperty()
+        {
+            var go = new GardenOrcOmelette();
+
+            Assert.PropertyChanged(go, "Mushrooms", () =>
+            {
+                go.Mushrooms = false;
+            });
+            Assert.PropertyChanged(go, "Mushrooms", () =>
+            {
+                go.Mushrooms = true;
+            });
+        }
+        [Fact]
+        public void ChangingTomatoNotifiesProperty()
+        {
+            var go = new GardenOrcOmelette();
+
+            Assert.PropertyChanged(go, "Tomato", () =>
+            {
+                go.Tomato = false;
+            });
+            Assert.PropertyChanged(go, "Tomato", () =>
+            {
+                go.Tomato = true;
+            });
+        }
+        [Fact]
+        public void ChangingCheddarNotifiesProperty()
+        {
+            var go = new GardenOrcOmelette();
+
+            Assert.PropertyChanged(go, "Cheddar", () =>
+            {
+                go.Cheddar = false;
+            });
+            Assert.PropertyChanged(go, "Cheddar", () =>
+            {
+                go.Cheddar = true;
+            });
+        }
 
         [Fact]
         public void ShouldBeAEntree()
         {
-            DoubleDraugr dd = new DoubleDraugr();
-            Assert.IsAssignableFrom<Entree>(dd);
+            GardenOrcOmelette go = new GardenOrcOmelette();
+            Assert.IsAssignableFrom<Entree>(go);
         }
 
         [Fact]

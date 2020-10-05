@@ -5,12 +5,14 @@
  */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
     public class PhillyPoacher : Entree
     {
+        new public event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
         /// private backing variables
         /// </summary>
@@ -26,7 +28,7 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Sirloin
         {
             get { return sirloin; }
-            set { sirloin = value; }
+            set { if (sirloin != value) { sirloin = value; OnPropertyChange("Sirloin"); }; }
         }
 
         /// <summary>
@@ -36,7 +38,7 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Onion
         {
             get { return onion; }
-            set { onion = value; }
+            set { if (onion != value) { onion = value; OnPropertyChange("Onion"); }; }
         }
 
         /// <summary>
@@ -44,7 +46,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// </summary>
         /// <returns>A bool for roll</returns>
         public bool Roll
-        { get { return roll; } set { roll = value; } }
+        { get { return roll; } set { if (roll != value) { roll = value; OnPropertyChange("Roll"); }; } }
 
         /// <summary>
         /// The price

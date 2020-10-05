@@ -12,7 +12,78 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
     public class BriarheartBurgerTests
     {
+        [Fact]
+        public void ChangingCheeseNotifiesProperty()
+        {
+            var BB = new BriarheartBurger();
 
+            Assert.PropertyChanged(BB, "Cheese", () =>
+            {
+                BB.Cheese = false;
+            });
+            Assert.PropertyChanged(BB, "Cheese", () =>
+            {
+                BB.Cheese = true;
+            });
+        }
+
+        [Fact]
+        public void ChangingPickleNotifiesProperty()
+        {
+            var BB = new BriarheartBurger();
+
+            Assert.PropertyChanged(BB, "Pickle", () =>
+            {
+                BB.Pickle = false;
+            });
+            Assert.PropertyChanged(BB, "Pickle", () =>
+            {
+                BB.Pickle = true;
+            });
+        }
+
+        [Fact]
+        public void ChangingMustardNotifiesProperty()
+        {
+            var BB = new BriarheartBurger();
+
+            Assert.PropertyChanged(BB, "Mustard", () =>
+            {
+                BB.Mustard = false;
+            });
+            Assert.PropertyChanged(BB, "Mustard", () =>
+            {
+                BB.Mustard = true;
+            });
+        }
+        [Fact]
+        public void ChangingBunNotifiesProperty()
+        {
+            var BB = new BriarheartBurger();
+
+            Assert.PropertyChanged(BB, "Bun", () =>
+            {
+                BB.Bun = false;
+            });
+            Assert.PropertyChanged(BB, "Bun", () =>
+            {
+                BB.Bun = true;
+            });
+        }
+        [Fact]
+        public void ChangingKetchupNotifiesProperty()
+        {
+            var BB = new BriarheartBurger();
+
+            Assert.PropertyChanged(BB, "Ketchup", () =>
+            {
+                BB.Ketchup = false;
+            });
+            Assert.PropertyChanged(BB, "Ketchup", () =>
+            {
+                BB.Ketchup = true;
+            });
+        }
         [Fact]
         public void ShouldBeAEntree()
         {

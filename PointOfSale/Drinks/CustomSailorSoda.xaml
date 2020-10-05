@@ -26,17 +26,17 @@
         </Grid.RowDefinitions>
 
         <Button Click="CancelClick"  Grid.Column="0" Grid.Row="0" Width="100" Height="30">Cancel</Button>
-        <CheckBox Grid.Row="2" Grid.Column="0" FontWeight="Bold" >Small</CheckBox>
-        <CheckBox Grid.Row="3" Grid.Column="0" FontWeight="Bold" >Medium</CheckBox>
-        <CheckBox Grid.Row="4" Grid.Column="0" FontWeight="Bold" >Large</CheckBox>
+        <CheckBox Name="Small" Checked="checkboxChecked" Grid.Row="2" Grid.Column="0" FontWeight="Bold" >Small</CheckBox>
+        <CheckBox Name ="Medium" Checked="checkboxChecked" Grid.Row="3" Grid.Column="0" FontWeight="Bold" >Medium</CheckBox>
+        <CheckBox Name ="Large" Checked="checkboxChecked"   Grid.Row="4" Grid.Column="0" FontWeight="Bold" >Large</CheckBox>
         <CheckBox Grid.Row="2" Grid.Column="1" FontWeight="Bold" IsChecked="True" >Ice</CheckBox>
         <Button Grid.Column="2" Grid.Row="8" Width="100" Height="30" Click="DoneClick">Done</Button>
-        <CheckBox Grid.Row="2" Grid.Column="2" FontWeight="Bold" >Blackberry</CheckBox>
-        <CheckBox Grid.Row="3" Grid.Column="2" FontWeight="Bold" IsChecked="True" >Cherry</CheckBox>
-        <CheckBox Grid.Row="4" Grid.Column="2" FontWeight="Bold" >Grapefruit</CheckBox>
-        <CheckBox Grid.Row="5" Grid.Column="2" FontWeight="Bold" >Lemon</CheckBox>
-        <CheckBox Grid.Row="6" Grid.Column="2" FontWeight="Bold" >Peach</CheckBox>
-        <CheckBox Grid.Row="7" Grid.Column="2" FontWeight="Bold" >Watermelon</CheckBox>
+        <CheckBox Name="Blackberry" Checked="checkBoxFlavorChecked" Grid.Row="2" Grid.Column="2" FontWeight="Bold" >Blackberry</CheckBox>
+        <CheckBox Name="Cherry" Checked="checkBoxFlavorChecked" Grid.Row="3" Grid.Column="2" FontWeight="Bold">Cherry</CheckBox>
+        <CheckBox Name="Grapefruit" Checked="checkBoxFlavorChecked" Grid.Row="4" Grid.Column="2" FontWeight="Bold" >Grapefruit</CheckBox>
+        <CheckBox Name="Lemon" Checked="checkBoxFlavorChecked" Grid.Row="5" Grid.Column="2" FontWeight="Bold" >Lemon</CheckBox>
+        <CheckBox Name="Peach" Checked="checkBoxFlavorChecked" Grid.Row="6" Grid.Column="2" FontWeight="Bold" >Peach</CheckBox>
+        <CheckBox Name="Watermelon" Checked="checkBoxFlavorChecked" Grid.Row="7" Grid.Column="2" FontWeight="Bold" >Watermelon</CheckBox>
 
         <TextBlock Grid.Column="0" Grid.Row="1"  Width ="150" Height="50" FontWeight="Bold" FontSize="20" TextAlignment="Center"  Text="Size"/>
         <TextBlock Grid.Column="1" Grid.Row="1"  Width ="150" Height="50" FontWeight="Bold" FontSize="20" TextAlignment="Center"  Text="Add Item"/>

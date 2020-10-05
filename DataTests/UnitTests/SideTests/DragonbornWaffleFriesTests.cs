@@ -13,7 +13,50 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
     public class DragonbornWaffleFriesTests
     {
 
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangingSizeShouldNotifyStuff(Size size)
+        {
+            var df = new DragonbornWaffleFries();
+            if (size == Size.Small) { df.Size = Size.Medium; }
+            Assert.PropertyChanged(df, "Size", () =>
+            {
+                df.Size = size;
+            });
 
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangingPriceShouldNotifyStuff(Size size)
+        {
+            var df = new DragonbornWaffleFries();
+            if (size == Size.Small) { df.Size = Size.Medium; }
+            Assert.PropertyChanged(df, "Price", () =>
+            {
+                df.Size = size;
+            });
+
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangingCaloriesShouldNotifyStuff(Size size)
+        {
+            var df = new DragonbornWaffleFries();
+            if (size == Size.Small) { df.Size = Size.Medium; }
+            Assert.PropertyChanged(df, "Calories", () =>
+            {
+                df.Size = size;
+            });
+
+        }
         [Fact]
         public void ShouldBeASide()
         {

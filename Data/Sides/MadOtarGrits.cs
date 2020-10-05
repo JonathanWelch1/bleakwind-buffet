@@ -5,18 +5,19 @@
  */
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.ComponentModel;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Sides
 {
-    public class MadOtarGrits : Side
+    public class MadOtarGrits : Side, INotifyPropertyChanged
     {
         /// <summary>
         /// private backing variables
         /// </summary>
 
-        private Size size = Size.Small;
         private List<string> instructions;
         /// <summary>
         /// Getter  and setter for backing var

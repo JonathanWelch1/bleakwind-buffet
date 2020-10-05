@@ -5,12 +5,15 @@
  */
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.ComponentModel;
 using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
-    public class GardenOrcOmelette : Entree
+    public class GardenOrcOmelette : Entree, INotifyPropertyChanged
     {
+        new public event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
         /// private backing variables
         /// </summary>
@@ -28,7 +31,7 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Broccoli
         {
             get { return broccoli; }
-            set { broccoli = value; }
+            set { if (broccoli != value) { broccoli = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Broccoli")); }; }
         }
 
         /// <summary>
@@ -38,7 +41,7 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Mushrooms
         {
             get { return mushrooms; }
-            set { mushrooms = value; }
+            set { if (mushrooms != value) { mushrooms = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mushrooms")); }; }
         }
 
         /// <summary>
@@ -47,7 +50,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <returns>A bool for tomatos</returns>
         public bool Tomato
         { get { return tomato; }
-          set { tomato = value; } 
+          set { if (tomato != value) { tomato =value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tomato"));  }; } 
         }
         
         /// <summary>
@@ -57,7 +60,7 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Cheddar
         {
             get { return cheddar; }
-            set { cheddar = value; }
+            set { if (cheddar != value) { cheddar = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheddar")); }; }
         }
 
         /// <summary>

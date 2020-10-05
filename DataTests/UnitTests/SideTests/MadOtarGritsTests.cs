@@ -12,6 +12,50 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
 {
     public class MadOtarGritsTests
     {
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangingSizeShouldNotifyStuff(Size size)
+        {
+            var mg = new MadOtarGrits();
+            if (size == Size.Small) { mg.Size = Size.Medium; }
+            Assert.PropertyChanged(mg, "Size", () =>
+            {
+                mg.Size = size;
+            });
+
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangingPriceShouldNotifyStuff(Size size)
+        {
+            var mg = new MadOtarGrits();
+            if (size == Size.Small) { mg.Size = Size.Medium; }
+            Assert.PropertyChanged(mg, "Price", () =>
+            {
+                mg.Size = size;
+            });
+
+        }
+
+        [Theory]
+        [InlineData(Size.Small)]
+        [InlineData(Size.Medium)]
+        [InlineData(Size.Large)]
+        public void ChangingCaloriesShouldNotifyStuff(Size size)
+        {
+            var mg = new MadOtarGrits();
+            if (size == Size.Small) { mg.Size = Size.Medium; }
+            Assert.PropertyChanged(mg, "Calories", () =>
+            {
+                mg.Size = size;
+            });
+
+        }
         [Fact]
         public void ShouldBeASide()
         {

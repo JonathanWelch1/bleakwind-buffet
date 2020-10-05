@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 
@@ -7,11 +8,11 @@ namespace BleakwindBuffet.Data.Drinks
 {
     public class MarkarthMilk : Drink
     {
+        new public event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
         /// private backing variables
         /// </summary>
         private List<string> instructions;
-        private Size size = Size.Small;
         private bool ice = false;
 
         /// <summary>
@@ -63,7 +64,14 @@ namespace BleakwindBuffet.Data.Drinks
         public bool Ice
         {
             get { return ice; }
-            set { ice = value; }
+            set
+            {
+                if (ice != value)
+                {
+                    ice = value;
+                    OnPropertyChange("Ice");
+                }
+            }
         }
 
         /// <summary>
