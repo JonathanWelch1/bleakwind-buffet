@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BleakwindBuffet.Data.Drinks;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -10,7 +11,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Size = BleakwindBuffet.Data.Enums.Size; 
+using Size = BleakwindBuffet.Data.Enums.Size;
+using BleakwindBuffet.Data;
 
 namespace PointOfSale.Drinks
 {
@@ -20,13 +22,18 @@ namespace PointOfSale.Drinks
     public partial class CustomAretinoAppleJuice : UserControl
     {
         private MainWindow mw;
+        private AretinoAppleJuice AA;
+        private Order _l;
         /// <summary>
         /// Constructor for class
         /// </summary>
         /// <param name="sw">Main window being passed through</param>
-        public CustomAretinoAppleJuice(MainWindow sw)
+        public CustomAretinoAppleJuice(MainWindow sw, AretinoAppleJuice aj, Order l )
         {
             InitializeComponent();
+            AA = aj;
+            _l = l;
+            DataContext = aj;
             mw = sw;
         }
         /// <summary>
@@ -69,8 +76,11 @@ namespace PointOfSale.Drinks
                     default:
                         throw new NotImplementedException();
                 }
-
+                AA.Size = s;
+                DataContext = AA;
             }
+           
+            
         }
 
 
@@ -82,6 +92,12 @@ namespace PointOfSale.Drinks
         void CancelClick(object sender, RoutedEventArgs e)
         {
             mw.swapScreen(new ButtonControl(mw));
+            DataContext = _l;
+            if (DataContext is Order o)
+            {
+                var itemRemoved = AA;
+                o.Remove(itemRemoved);
+            }
         }
 
     }

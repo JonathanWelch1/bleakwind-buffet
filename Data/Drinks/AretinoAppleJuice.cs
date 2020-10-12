@@ -14,6 +14,9 @@ namespace BleakwindBuffet.Data.Drinks
         private List<string> instructions;
         private bool ice = false;
         
+        public string Name
+        { get { return this.ToString(); } }
+        
 
         /// <summary>
         /// Getter  and setter for backing var
@@ -73,6 +76,7 @@ namespace BleakwindBuffet.Data.Drinks
                 {
                     ice = value; 
                     OnPropertyChange("Ice");
+                    OnPropertyChange("SpecialInstructions");
                 }
             }
         }

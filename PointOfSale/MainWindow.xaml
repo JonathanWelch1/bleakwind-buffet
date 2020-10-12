@@ -15,8 +15,8 @@
         <Border Name="Border" BorderThickness="1" BorderBrush="Black" Margin="43,61,41,0" Height="704" VerticalAlignment="Top">
             
         </Border>
-        <Border BorderThickness="1" BorderBrush="Black" Margin="31,61,10,0" Height="704" VerticalAlignment="Top" Grid.Column="1">
-            <local:OrderControl/>
+        <Border Name="OrderReceit" BorderThickness="1" BorderBrush="Black" Margin="31,61,10,0" Height="704" VerticalAlignment="Top" Grid.Column="1">
+           
         </Border>
     </Grid>
 </Window>

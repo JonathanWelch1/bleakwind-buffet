@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BleakwindBuffet.Data.Sides;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -10,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BleakwindBuffet.Data;
 
 namespace PointOfSale.Sides
 {
@@ -19,13 +21,18 @@ namespace PointOfSale.Sides
     public partial class CustomVokunSalad : UserControl
     {
         private MainWindow mw;
+        private VokunSalad VS;
+        private Order _l;
         /// <summary>
         /// Constructor for class
         /// </summary>
         /// <param name="sw">Main window being passed through</param>
-        public CustomVokunSalad(MainWindow sw)
+        public CustomVokunSalad(MainWindow sw, VokunSalad vs, Order l)
         {
             InitializeComponent();
+            VS = vs;
+            _l = l;
+            DataContext = VS;
             mw = sw;
         }
         /// <summary>
@@ -36,6 +43,12 @@ namespace PointOfSale.Sides
         private void CancelClick(object sender, RoutedEventArgs e)
         {
             mw.swapScreen(new ButtonControl(mw));
+            DataContext = _l;
+            if (DataContext is Order o)
+            {
+                var itemRemoved = VS;
+                o.Remove(itemRemoved);
+            }
         }
         /// <summary>
         /// Switches Screen

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BleakwindBuffet.Data.Drinks;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -11,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Size = BleakwindBuffet.Data.Enums.Size;
+using BleakwindBuffet.Data;
 
 namespace PointOfSale.Drinks
 {
@@ -20,13 +22,18 @@ namespace PointOfSale.Drinks
     public partial class CustomWarriorWater : UserControl
     {
         private MainWindow mw;
+        private WarriorWater WW;
+        private Order _l;
         /// <summary>
         /// Constructor for class
         /// </summary>
         /// <param name="sw">Main window being passed through</param>
-        public CustomWarriorWater(MainWindow sw)
+        public CustomWarriorWater(MainWindow sw, WarriorWater ww, Order l)
         {
             InitializeComponent();
+            WW = ww;
+            _l = l;
+            DataContext = WW;
             mw = sw;
         }
         /// <summary>
@@ -34,16 +41,22 @@ namespace PointOfSale.Drinks
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             mw.swapScreen(new ButtonControl(mw));
+            DataContext = _l;
+            if (DataContext is Order o)
+            {
+                var itemRemoved = WW;
+                o.Remove(itemRemoved);
+            }
         }
         /// <summary>
         /// Switches Screen
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Done_Click(object sender, RoutedEventArgs e)
         {
             mw.swapScreen(new ButtonControl(mw));
         }
@@ -76,7 +89,8 @@ namespace PointOfSale.Drinks
                     default:
                         throw new NotImplementedException();
                 }
-
+                WW.Size = s;
+                DataContext = WW;
             }
         }
     }

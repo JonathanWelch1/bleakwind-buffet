@@ -8,7 +8,9 @@ namespace BleakwindBuffet.Data.Drinks
 {
     public class MarkarthMilk : Drink
     {
-        new public event PropertyChangedEventHandler PropertyChanged;
+
+        public string Name
+        { get { return this.ToString(); } }
         /// <summary>
         /// private backing variables
         /// </summary>
@@ -70,6 +72,7 @@ namespace BleakwindBuffet.Data.Drinks
                 {
                     ice = value;
                     OnPropertyChange("Ice");
+                    OnPropertyChange("SpecialInstructions");
                 }
             }
         }

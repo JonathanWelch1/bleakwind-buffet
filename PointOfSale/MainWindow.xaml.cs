@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BleakwindBuffet.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,8 +26,12 @@ namespace PointOfSale
         /// </summary>
         public MainWindow()
         {
+            
             InitializeComponent();
             ButtonControl e = new ButtonControl(this);
+            OrderControl orderReceit = new OrderControl(this);
+            OrderReceit.Child = orderReceit;
+            DataContext = new Order();
             Border.Child = e;
             e.mw = this;
         }

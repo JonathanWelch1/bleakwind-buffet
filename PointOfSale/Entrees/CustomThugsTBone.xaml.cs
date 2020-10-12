@@ -10,33 +10,43 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
-namespace PointOfSale.Sides
+using BleakwindBuffet.Data;
+using BleakwindBuffet.Data.Entrees;
+namespace PointOfSale.Entrees
 {
     /// <summary>
-    /// Interaction logic for FriedMiraak.xaml
+    /// Interaction logic for CustomThugsTBone.xaml
     /// </summary>
-    public partial class FriedMiraak : UserControl
+    public partial class CustomThugsTBone : UserControl
     {
 
         private MainWindow mw;
-        /// <summary>
-        /// Constructor for class
-        /// </summary>
-        /// <param name="sw">Main window being passed through</param>
-        public FriedMiraak(MainWindow sw)
+        private ThugsTBone TT;
+        private Order _l;
+
+        public CustomThugsTBone(MainWindow sw, ThugsTBone tt, Order l)
         {
             InitializeComponent();
             mw = sw;
+            TT = tt;
+            _l = l;
+            DataContext = TT;
         }
+
         /// <summary>
         /// Switches Screen
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void CancelClick(object sender, RoutedEventArgs e)
+        private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             mw.swapScreen(new ButtonControl(mw));
+            DataContext = _l;
+            if (DataContext is Order o)
+            {
+                var itemRemoved = TT;
+                o.Remove(itemRemoved);
+            }
         }
         /// <summary>
         /// Switches Screen
@@ -49,3 +59,4 @@ namespace PointOfSale.Sides
         }
     }
 }
+

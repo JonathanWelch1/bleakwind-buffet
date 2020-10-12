@@ -25,15 +25,15 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Button Grid.Column="0" Grid.Row="0" Width="100" Height="30" Click="Button_Click">Cancel</Button>
-        <CheckBox Grid.Row="2" Grid.Column="0" IsChecked="True" FontWeight="Bold" >Bun</CheckBox>
-        <CheckBox Grid.Row="3" Grid.Column="0" IsChecked="True" FontWeight="Bold" >Ketchup</CheckBox>
-        <CheckBox Grid.Row="4" Grid.Column="0" IsChecked="True" FontWeight="Bold" >Mustard</CheckBox>
-        <CheckBox Grid.Row="5" Grid.Column="0" IsChecked="True" FontWeight="Bold" >Pickel</CheckBox>
-        <CheckBox Grid.Row="6" Grid.Column="0" IsChecked="True" FontWeight="Bold" >Cheese</CheckBox>
-        <CheckBox Grid.Row="7" Grid.Column="0" IsChecked="True" FontWeight="Bold" >Tomato</CheckBox>
-        <CheckBox Grid.Row="8" Grid.Column="0" IsChecked="True" FontWeight="Bold" >Lettuce</CheckBox>
-        <CheckBox Grid.Row="9" Grid.Column="0" IsChecked="True" FontWeight="Bold" >Mayo</CheckBox>
+        <Button Grid.Column="0" Grid.Row="0" Width="100" Height="30" Click="Cancel_Click">Cancel</Button>
+        <CheckBox Grid.Row="2" Grid.Column="0" IsChecked="{Binding Path=Bun}" FontWeight="Bold" >Bun</CheckBox>
+        <CheckBox Grid.Row="3" Grid.Column="0" IsChecked="{Binding Path=Ketchup}" FontWeight="Bold" >Ketchup</CheckBox>
+        <CheckBox Grid.Row="4" Grid.Column="0" IsChecked="{Binding Path=Mustard}" FontWeight="Bold" >Mustard</CheckBox>
+        <CheckBox Grid.Row="5" Grid.Column="0" IsChecked="{Binding Path=Pickle}" FontWeight="Bold" >Pickle</CheckBox>
+        <CheckBox Grid.Row="6" Grid.Column="0" IsChecked="{Binding Path=Cheese}" FontWeight="Bold" >Cheese</CheckBox>
+        <CheckBox Grid.Row="7" Grid.Column="0" IsChecked="{Binding Path=Tomato}" FontWeight="Bold" >Tomato</CheckBox>
+        <CheckBox Grid.Row="8" Grid.Column="0" IsChecked="{Binding Path=Lettuce}" FontWeight="Bold" >Lettuce</CheckBox>
+        <CheckBox Grid.Row="9" Grid.Column="0" IsChecked="{Binding Path=Mayo}" FontWeight="Bold" >Mayo</CheckBox>
         <Button Grid.Column="2" Grid.Row="8" Width="100" Height="30" Click="DoneClick">Done</Button>
 
         <TextBlock Grid.Column="0" Grid.Row="1"  Width ="150" Height="50" FontWeight="Bold" FontSize="20" TextAlignment="Center"  Text="Customize"/>

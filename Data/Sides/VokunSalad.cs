@@ -13,6 +13,8 @@ namespace BleakwindBuffet.Data.Sides
 {
     public class VokunSalad : Side
     {
+        public string Name
+        { get { return this.ToString(); } }
         /// <summary>
         /// private backing variables
         /// </summary>

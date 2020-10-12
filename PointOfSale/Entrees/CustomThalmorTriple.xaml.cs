@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BleakwindBuffet.Data.Entrees;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -10,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BleakwindBuffet.Data;
 
 namespace PointOfSale.Entrees
 {
@@ -19,13 +21,19 @@ namespace PointOfSale.Entrees
     public partial class CustomThalmorTriple : UserControl
     {
         private MainWindow mw;
+        private ThalmorTriple TT;
+        private Order _l;
+
         /// <summary>
         /// Constructor for class
         /// </summary>
         /// <param name="sw">Main window being passed through</param>
-        public CustomThalmorTriple(MainWindow sw)
+        public CustomThalmorTriple(MainWindow sw, ThalmorTriple tt, Order l)
         {
             InitializeComponent();
+            TT = tt;
+            _l = l;
+            DataContext = TT;
             mw = sw;
         }
         /// <summary>
@@ -33,9 +41,15 @@ namespace PointOfSale.Entrees
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             mw.swapScreen(new ButtonControl(mw));
+            DataContext = _l;
+            if (DataContext is Order o)
+            {
+                var itemRemoved = TT;
+                o.Remove(itemRemoved);
+            }
         }
         /// <summary>
         /// Switches Screen

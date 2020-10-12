@@ -1,5 +1,4 @@
-﻿using BleakwindBuffet.Data.Entrees;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -11,24 +10,29 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BleakwindBuffet.Data.Sides;
 using BleakwindBuffet.Data;
 
-namespace PointOfSale.Entrees
+namespace PointOfSale.Sides
 {
     /// <summary>
-    /// Interaction logic for CustomSmokeHouseSkeleton.xaml
+    /// Interaction logic for MadOtarGrits.xaml
     /// </summary>
-    public partial class CustomSmokeHouseSkeleton : UserControl
+    public partial class CustomMadOtarGrits : UserControl
     {
         private MainWindow mw;
-        private SmokehouseSkeleton SS;
+        private MadOtarGrits MO;
         private Order _l;
-        public CustomSmokeHouseSkeleton(MainWindow sw, SmokehouseSkeleton ss, Order l)
+        /// <summary>
+        /// Constructor for class
+        /// </summary>
+        /// <param name="sw">Main window being passed through</param>
+        public CustomMadOtarGrits(MainWindow sw, MadOtarGrits mo, Order l)
         {
             InitializeComponent();
-            SS = ss;
+            MO = mo;
             _l = l;
-            DataContext = SS;
+            DataContext = MO;
             mw = sw;
         }
         /// <summary>
@@ -36,13 +40,13 @@ namespace PointOfSale.Entrees
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Cancel_Click(object sender, RoutedEventArgs e)
+        private void CancelClick(object sender, RoutedEventArgs e)
         {
             mw.swapScreen(new ButtonControl(mw));
             DataContext = _l;
             if (DataContext is Order o)
             {
-                var itemRemoved = SS;
+                var itemRemoved = MO;
                 o.Remove(itemRemoved);
             }
         }

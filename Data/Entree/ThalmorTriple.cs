@@ -13,6 +13,9 @@ namespace BleakwindBuffet.Data.Entrees
     public class ThalmorTriple : Entree
     {
         new public event PropertyChangedEventHandler PropertyChanged;
+
+        public string Name
+        { get { return this.ToString(); } }
         /// <summary>
         /// private backing variables
         /// </summary>
@@ -35,7 +38,7 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Cheese
         {
             get { return cheese; }
-            set { if (cheese != value) { cheese = value; OnPropertyChange("Cheese"); }; }
+            set { if (cheese != value) { cheese = value; OnPropertyChange("Cheese"); OnPropertyChange("SpecialInstructions"); }; }
         }
         /// <summary>
         /// Getter  and setter for backing var
@@ -44,14 +47,14 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Pickle
         {
             get { return pickle; }
-            set { if (pickle != value) { pickle = value; OnPropertyChange("Pickle"); }; }
+            set { if (pickle != value) { pickle = value; OnPropertyChange("Pickle"); OnPropertyChange("SpecialInstructions"); }; }
         }
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
         /// <returns>A bool for mustard</returns>
         public bool Mustard
-        { get { return mustard; } set { if (mustard != value) { mustard = value; OnPropertyChange("Mustard"); }; } }
+        { get { return mustard; } set { if (mustard != value) { mustard = value; OnPropertyChange("Mustard"); OnPropertyChange("SpecialInstructions"); }; } }
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
@@ -59,7 +62,7 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Bun
         {
             get { return bun; }
-            set { if (bun != value) { bun = value; OnPropertyChange("Bun"); }; }
+            set { if (bun != value) { bun = value; OnPropertyChange("Bun"); OnPropertyChange("SpecialInstructions"); }; }
         }
         /// <summary>
         /// Getter  and setter for backing var
@@ -68,7 +71,7 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Ketchup
         {
             get { return ketchup; }
-            set { if (ketchup != value) { ketchup = value; OnPropertyChange("Ketchup"); }; }
+            set { if (ketchup != value) { ketchup = value; OnPropertyChange("Ketchup"); OnPropertyChange("SpecialInstructions"); }; }
         }
         /// <summary>
         /// Getter  and setter for backing var
@@ -77,7 +80,7 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Tomato
         {
             get { return tomato; }
-            set { if (tomato != value) { tomato = value; OnPropertyChange("Tomato"); }; }
+            set { if (tomato != value) { tomato = value; OnPropertyChange("Tomato"); OnPropertyChange("SpecialInstructions"); }; }
         }
         /// <summary>
         /// Getter  and setter for backing var
@@ -86,7 +89,7 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Mayo
         {
             get { return mayo; }
-            set { if (mayo != value) { mayo = value; OnPropertyChange("Mayo"); }; }
+            set { if (mayo != value) { mayo = value; OnPropertyChange("Mayo"); OnPropertyChange("SpecialInstructions"); }; }
         }
         /// <summary>
         /// Getter  and setter for backing var
@@ -95,7 +98,7 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Lettuce
         {
             get { return lettuce; }
-            set { if (lettuce != value) { lettuce = value; OnPropertyChange("Lettuce"); }; }
+            set { if (lettuce != value) { lettuce = value; OnPropertyChange("Lettuce"); OnPropertyChange("SpecialInstructions"); }; }
         }
         /// <summary>
         /// Getter  and setter for backing var
@@ -104,7 +107,7 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Bacon
         {
             get { return bacon; }
-            set { if (bacon != value) { bacon = value; OnPropertyChange("Bacon"); }; }
+            set { if (bacon != value) { bacon = value; OnPropertyChange("Bacon"); OnPropertyChange("SpecialInstructions"); }; }
         }
         /// <summary>
         /// Getter  and setter for backing var
@@ -113,7 +116,7 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Egg
         {
             get { return egg; }
-            set { if (egg != value) { egg = value; OnPropertyChange("Egg"); }; }
+            set { if (egg != value) { egg = value; OnPropertyChange("Egg"); OnPropertyChange("SpecialInstructions"); }; }
         }
         /// <summary>
         /// Getter  and setter for backing var

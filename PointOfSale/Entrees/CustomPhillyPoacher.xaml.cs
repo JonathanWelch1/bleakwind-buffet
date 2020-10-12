@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BleakwindBuffet.Data.Entrees;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -10,7 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using BleakwindBuffet.Data;
 namespace PointOfSale.Entrees
 {
     /// <summary>
@@ -19,13 +20,19 @@ namespace PointOfSale.Entrees
     public partial class CustomPhillyPoacher : UserControl
     {
         private MainWindow mw;
+        private PhillyPoacher pp;
+        private Order _l;
+
         /// <summary>
         /// Constructor for class
         /// </summary>
         /// <param name="sw">Main window being passed through</param>
-        public CustomPhillyPoacher(MainWindow sw)
+        public CustomPhillyPoacher(MainWindow sw, PhillyPoacher p, Order l)
         {
             InitializeComponent();
+            pp = p;
+            _l = l;
+            DataContext = pp;
             mw = sw;
         }
         /// <summary>
@@ -33,9 +40,15 @@ namespace PointOfSale.Entrees
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             mw.swapScreen(new ButtonControl(mw));
+            DataContext = _l;
+            if (DataContext is Order o)
+            {
+                var itemRemoved = pp;
+                o.Remove(itemRemoved);
+            }
         }
         /// <summary>
         /// Switches Screen

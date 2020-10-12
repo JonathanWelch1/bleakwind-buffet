@@ -8,11 +8,62 @@
 
     
     <DockPanel>
-        <TextBlock DockPanel.Dock="Top" TextAlignment="Center" FontSize="30" FontWeight="Bold" Text="Order"/>
-        <TextBlock FontWeight="Bold" DockPanel.Dock="Bottom" Text="Total:"/>
-        <TextBlock FontWeight="Bold" DockPanel.Dock="Bottom" Text="Tax:"/>
-        <TextBlock FontWeight="Bold" DockPanel.Dock="Bottom" Text="Subtotal:"/>
-        <ListView Name="OrderItem" FontSize="20"></ListView>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" DockPanel.Dock="Top">
+            <TextBlock DockPanel.Dock="Top" TextAlignment="Center" FontSize="30" FontWeight="Bold" Text="Order"/>
+            <TextBlock Text="{Binding Path=Number}"/>
+        </StackPanel>
+
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal">
+            <TextBlock FontWeight="Bold" DockPanel.Dock="Bottom" Text="Total:"/>
+            <TextBlock Text="$"/>
+            <TextBlock Text="{Binding StringFormat={}{0:#.00}, Path=Total}"/>
+        </StackPanel>
+
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal">
+            <TextBlock FontWeight="Bold" DockPanel.Dock="Bottom" Text="Tax:"/>
+            <TextBlock Text="$"/>
+            <TextBlock Text="{Binding StringFormat={}{0:#.00}, Path=Tax}"/>
+        </StackPanel>
+
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal">
+            <TextBlock FontWeight="Bold" DockPanel.Dock="Bottom" Text="Subtotal:"/>
+            <TextBlock Text="$"/>
+            <TextBlock Text="{Binding StringFormat={}{0:#.00}, Path=Subtotal}"/>
+        </StackPanel>
+
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal">
+            <TextBlock FontWeight="Bold" DockPanel.Dock="Bottom" Text="Total Calories:"/>
+            <TextBlock Text="{Binding Path=Calories}"/>
+        </StackPanel>
+
+        <ListBox Name="COrder" DockPanel.Dock="Bottom" ItemsSource="{Binding}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Path=Name}"/>
+                            <TextBlock Text="   , Price:$"/>
+                            <TextBlock Name="CPrice" Text="{Binding Path=Price}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <ListBox ItemsSource="{Binding Path=SpecialInstructions}">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}"/>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Calories of Item, "/>
+                                <TextBlock Text="{Binding Path=Calories}"/>
+                            </StackPanel>
+                            <Button Name="EditOrder" Content="Edit Current Item"/>
+                            <Button Name="DeleteOrder" Content="Delete Current Item"/>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </DockPanel>
 
 </UserControl>

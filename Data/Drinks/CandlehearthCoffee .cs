@@ -17,7 +17,8 @@ namespace BleakwindBuffet.Data.Drinks
         private bool roomForCream = false;
         private bool decaf = false;
 
-
+        public string Name
+        { get { return this.ToString(); } }
         /// <summary>
         /// Getter  and setter for backing var
         /// </summary>
@@ -76,6 +77,7 @@ namespace BleakwindBuffet.Data.Drinks
                 {
                     ice = value;
                     OnPropertyChange("Ice");
+                    OnPropertyChange("SpecialInstructions");
                 };
             }
         }
@@ -86,7 +88,7 @@ namespace BleakwindBuffet.Data.Drinks
         public bool RoomForCream
         {
             get { return roomForCream; }
-            set { if (roomForCream != value) { roomForCream = value; OnPropertyChange("RoomForCream"); } }
+            set { if (roomForCream != value) { roomForCream = value; OnPropertyChange("RoomForCream"); OnPropertyChange("SpecialInstructions"); } }
         }
         /// <summary>
         /// Getter  and setter for backing var
@@ -95,7 +97,7 @@ namespace BleakwindBuffet.Data.Drinks
         public bool Decaf
         {
             get { return decaf; }
-            set { if (decaf != value) { decaf = value; OnPropertyChange("Decaf");}; }
+            set { if (decaf != value) { decaf = value; OnPropertyChange("Decaf"); OnPropertyChange("SpecialInstructions"); }; }
         }
         /// <summary>
         /// Getter  and setter for backing var

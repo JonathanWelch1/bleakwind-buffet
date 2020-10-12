@@ -10,22 +10,30 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BleakwindBuffet.Data.Sides;
+using BleakwindBuffet.Data;
 
 namespace PointOfSale.Sides
 {
     /// <summary>
-    /// Interaction logic for MadOtarGrits.xaml
+    /// Interaction logic for FriedMiraak.xaml
     /// </summary>
-    public partial class MadOtarGrits : UserControl
+    public partial class CustomFriedMiraak : UserControl
     {
+
         private MainWindow mw;
+        private FriedMiraak FM;
+        private Order _l;
         /// <summary>
         /// Constructor for class
         /// </summary>
         /// <param name="sw">Main window being passed through</param>
-        public MadOtarGrits(MainWindow sw)
+        public CustomFriedMiraak(MainWindow sw, FriedMiraak fm, Order l)
         {
             InitializeComponent();
+            FM = fm;
+            _l = l;
+            DataContext = FM;
             mw = sw;
         }
         /// <summary>
@@ -36,6 +44,12 @@ namespace PointOfSale.Sides
         private void CancelClick(object sender, RoutedEventArgs e)
         {
             mw.swapScreen(new ButtonControl(mw));
+            DataContext = _l;
+            if (DataContext is Order o)
+            {
+                var itemRemoved = FM;
+                o.Remove(itemRemoved);
+            }
         }
         /// <summary>
         /// Switches Screen

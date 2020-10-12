@@ -10,7 +10,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BleakwindBuffet.Data.Drinks;
 using Size = BleakwindBuffet.Data.Enums.Size;
+using BleakwindBuffet.Data;
 
 namespace PointOfSale.Drinks
 {
@@ -20,13 +22,18 @@ namespace PointOfSale.Drinks
     public partial class CustomMarkathMilk : UserControl
     {
         private MainWindow mw;
+        private MarkarthMilk MM;
+        private Order _l;
         /// <summary>
         /// Constructor for class
         /// </summary>
         /// <param name="sw">Main window being passed through</param>
-        public CustomMarkathMilk(MainWindow sw)
+        public CustomMarkathMilk(MainWindow sw, MarkarthMilk mm, Order l)
         {
             InitializeComponent();
+            MM = mm;
+            _l = l;
+            DataContext = MM;
             mw = sw;
         }
         /// <summary>
@@ -34,16 +41,22 @@ namespace PointOfSale.Drinks
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             mw.swapScreen(new ButtonControl(mw));
+            DataContext = _l;
+            if (DataContext is Order o)
+            {
+                var itemRemoved = MM;
+                o.Remove(itemRemoved);
+            }
         }
         /// <summary>
         /// Switches Screen
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Done_Click(object sender, RoutedEventArgs e)
         {
             mw.swapScreen(new ButtonControl(mw));
         }
@@ -76,7 +89,8 @@ namespace PointOfSale.Drinks
                     default:
                         throw new NotImplementedException();
                 }
-
+                MM.Size = s;
+                DataContext = MM;
             }
         }
     }

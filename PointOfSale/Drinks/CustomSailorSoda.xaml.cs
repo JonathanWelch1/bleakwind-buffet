@@ -12,6 +12,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Size = BleakwindBuffet.Data.Enums.Size;
 using Flavor = BleakwindBuffet.Data.Enums.SodaFlavor;
+using BleakwindBuffet.Data.Drinks;
+using BleakwindBuffet.Data;
 
 namespace PointOfSale.Drinks
 {
@@ -21,13 +23,18 @@ namespace PointOfSale.Drinks
     public partial class CustomSailorSoda : UserControl
     {
         private MainWindow mw;
+        private SailorSoda SS;
+        private Order _l;
         /// <summary>
         /// Constructor for class
         /// </summary>
         /// <param name="sw">Main window being passed through</param>
-        public CustomSailorSoda(MainWindow sw)
+        public CustomSailorSoda(MainWindow sw, SailorSoda ss, Order l)
         {
             InitializeComponent();
+            SS = ss;
+            _l = l;
+            DataContext = SS;
             mw = sw;
         }
         /// <summary>
@@ -38,6 +45,12 @@ namespace PointOfSale.Drinks
         private void CancelClick(object sender, RoutedEventArgs e)
         {
             mw.swapScreen(new ButtonControl(mw));
+            DataContext = _l;
+            if (DataContext is Order o)
+            {
+                var itemRemoved = SS;
+                o.Remove(itemRemoved);
+            }
         }
         /// <summary>
         /// Switches Screen
@@ -77,7 +90,8 @@ namespace PointOfSale.Drinks
                     default:
                         throw new NotImplementedException();
                 }
-
+                SS.Size = s;
+                DataContext = SS;
             }
         }
 
@@ -145,7 +159,8 @@ namespace PointOfSale.Drinks
                     default:
                         throw new NotImplementedException();
                 }
-
+                SS.Flavor = f;
+                DataContext = SS;
             }
         }
     }

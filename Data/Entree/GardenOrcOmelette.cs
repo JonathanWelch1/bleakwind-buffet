@@ -14,6 +14,9 @@ namespace BleakwindBuffet.Data.Entrees
     public class GardenOrcOmelette : Entree, INotifyPropertyChanged
     {
         new public event PropertyChangedEventHandler PropertyChanged;
+
+        public string Name
+        { get { return this.ToString(); } }
         /// <summary>
         /// private backing variables
         /// </summary>
@@ -31,7 +34,7 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Broccoli
         {
             get { return broccoli; }
-            set { if (broccoli != value) { broccoli = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Broccoli")); }; }
+            set { if (broccoli != value) { broccoli = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Broccoli")); OnPropertyChange("SpecialInstructions"); }; }
         }
 
         /// <summary>
@@ -41,7 +44,7 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Mushrooms
         {
             get { return mushrooms; }
-            set { if (mushrooms != value) { mushrooms = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mushrooms")); }; }
+            set { if (mushrooms != value) { mushrooms = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mushrooms")); OnPropertyChange("SpecialInstructions"); }; }
         }
 
         /// <summary>
@@ -50,7 +53,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <returns>A bool for tomatos</returns>
         public bool Tomato
         { get { return tomato; }
-          set { if (tomato != value) { tomato =value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tomato"));  }; } 
+          set { if (tomato != value) { tomato =value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tomato")); OnPropertyChange("SpecialInstructions"); }; } 
         }
         
         /// <summary>
@@ -60,7 +63,7 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Cheddar
         {
             get { return cheddar; }
-            set { if (cheddar != value) { cheddar = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheddar")); }; }
+            set { if (cheddar != value) { cheddar = value; PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheddar")); OnPropertyChange("SpecialInstructions"); }; }
         }
 
         /// <summary>

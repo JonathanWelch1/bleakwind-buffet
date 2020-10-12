@@ -11,6 +11,8 @@ namespace BleakwindBuffet.Data.Entrees
 {
     public class ThugsTBone : Entree
     {
+        public string Name
+        { get { return this.ToString(); } }
         /// <summary>
         /// private backing variables
         /// </summary>

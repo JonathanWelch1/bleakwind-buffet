@@ -9,7 +9,8 @@ namespace BleakwindBuffet.Data.Drinks
     public class WarriorWater : Drink
     {
 
-        new public event EventHandler PropertyChanged;
+        public string Name
+        { get { return this.ToString(); } }
 
         /// <summary>
         /// private backing variables
@@ -69,7 +70,7 @@ namespace BleakwindBuffet.Data.Drinks
         public bool Ice
         {
             get { return ice; }
-            set { if (ice != value) { ice = value; OnPropertyChange("Ice"); } }
+            set { if (ice != value) { ice = value; OnPropertyChange("Ice"); OnPropertyChange("SpecialInstructions"); } }
         }
         /// <summary>
         /// Getter  and setter for backing var
@@ -78,7 +79,7 @@ namespace BleakwindBuffet.Data.Drinks
         public bool Lemon
         {
             get { return lemon; }
-            set { if (lemon != value) { lemon = value; OnPropertyChange("Lemon"); }; }
+            set { if (lemon != value) { lemon = value; OnPropertyChange("Lemon"); OnPropertyChange("SpecialInstructions"); }; }
         }
 
         /// <summary>

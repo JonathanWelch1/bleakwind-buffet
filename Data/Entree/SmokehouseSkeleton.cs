@@ -13,6 +13,9 @@ namespace BleakwindBuffet.Data.Entrees
     public class SmokehouseSkeleton : Entree
     {
         new public event PropertyChangedEventHandler PropertyChanged;
+
+        public string Name
+        { get { return this.ToString(); } }
         /// <summary>
         /// private backing variables
         /// </summary>
@@ -29,7 +32,7 @@ namespace BleakwindBuffet.Data.Entrees
         public bool SausageLink
         {
             get { return sausageLink; }
-            set { if (sausageLink != value) { sausageLink = value; OnPropertyChange("SausageLink"); }; }
+            set { if (sausageLink != value) { sausageLink = value; OnPropertyChange("SausageLink"); OnPropertyChange("SpecialInstructions"); }; }
         }
 
         /// <summary>
@@ -39,7 +42,7 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Egg
         {
             get { return egg; }
-            set { if (egg != value) { egg = value; OnPropertyChange("Egg"); }; }
+            set { if (egg != value) { egg = value; OnPropertyChange("Egg"); OnPropertyChange("SpecialInstructions"); }; }
         }
 
         /// <summary>
@@ -47,7 +50,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// </summary>
         /// <returns>A bool for Hasbrowns</returns>
         public bool HashBrowns
-        { get { return hashBrowns; } set { if (hashBrowns != value) { hashBrowns = value; OnPropertyChange("HashBrowns"); }; } }
+        { get { return hashBrowns; } set { if (hashBrowns != value) { hashBrowns = value; OnPropertyChange("HashBrowns"); OnPropertyChange("SpecialInstructions"); }; } }
 
         /// <summary>
         /// Getter  and setter for backing var
@@ -56,7 +59,7 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Pancake
         {
             get { return pancake; }
-            set { if (pancake != value) { pancake = value; OnPropertyChange("Pancake"); }; }
+            set { if (pancake != value) { pancake = value; OnPropertyChange("Pancake"); OnPropertyChange("SpecialInstructions"); }; }
         }
 
         /// <summary>

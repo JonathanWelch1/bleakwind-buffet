@@ -14,6 +14,8 @@ namespace BleakwindBuffet.Data.Sides
 {
     public class MadOtarGrits : Side, INotifyPropertyChanged
     {
+        public string Name
+        { get { return this.ToString(); } }
         /// <summary>
         /// private backing variables
         /// </summary>

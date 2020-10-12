@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace BleakwindBuffet.Data
 {
-    public interface IOrderItem
+    public interface IOrderItem : INotifyPropertyChanged
     { 
+
+
         /// <summary>
         /// The price of the Drinks Entrees and Sides
         /// </summary>

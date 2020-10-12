@@ -13,6 +13,9 @@ namespace BleakwindBuffet.Data.Entrees
     public class PhillyPoacher : Entree
     {
         new public event PropertyChangedEventHandler PropertyChanged;
+
+        public string Name
+        { get { return this.ToString(); } }
         /// <summary>
         /// private backing variables
         /// </summary>
@@ -28,7 +31,7 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Sirloin
         {
             get { return sirloin; }
-            set { if (sirloin != value) { sirloin = value; OnPropertyChange("Sirloin"); }; }
+            set { if (sirloin != value) { sirloin = value; OnPropertyChange("Sirloin"); OnPropertyChange("SpecialInstructions"); }; }
         }
 
         /// <summary>
@@ -38,7 +41,7 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Onion
         {
             get { return onion; }
-            set { if (onion != value) { onion = value; OnPropertyChange("Onion"); }; }
+            set { if (onion != value) { onion = value; OnPropertyChange("Onion"); OnPropertyChange("SpecialInstructions"); }; }
         }
 
         /// <summary>
@@ -46,7 +49,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// </summary>
         /// <returns>A bool for roll</returns>
         public bool Roll
-        { get { return roll; } set { if (roll != value) { roll = value; OnPropertyChange("Roll"); }; } }
+        { get { return roll; } set { if (roll != value) { roll = value; OnPropertyChange("Roll"); OnPropertyChange("SpecialInstructions"); }; } }
 
         /// <summary>
         /// The price

@@ -10,6 +10,8 @@ namespace BleakwindBuffet.Data.Drinks
 {
     public class SailorSoda : Drink
     {
+        public string Name
+        { get { return this.ToString(); } }
         /// <summary>
         /// private backing variables
         /// </summary>
@@ -75,6 +77,7 @@ namespace BleakwindBuffet.Data.Drinks
                 {
                     ice = value;
                     OnPropertyChange("Ice");
+                    OnPropertyChange("SpecialInstructions");
                 }
             }
         }
@@ -103,7 +106,7 @@ namespace BleakwindBuffet.Data.Drinks
         public SodaFlavor Flavor
         {
             get { return flavor; }
-            set { if (flavor != value) { flavor = value; OnPropertyChange("Flavor"); };}
+            set { if (flavor != value) { flavor = value; OnPropertyChange("Flavor"); OnPropertyChange("SpecialInstructions"); };}
         }
 
         /// <summary>

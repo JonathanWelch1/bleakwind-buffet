@@ -25,10 +25,10 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Button Grid.Column="0" Grid.Row="0" Width="100" Height="30" Click="Button_Click">Cancel</Button>
-        <CheckBox Grid.Row="2" Grid.Column="0" IsChecked="True" FontWeight="Bold" >Sirloin</CheckBox>
-        <CheckBox Grid.Row="3" Grid.Column="0" IsChecked="True" FontWeight="Bold" >Onion</CheckBox>
-        <CheckBox Grid.Row="4" Grid.Column="0" IsChecked="True" FontWeight="Bold" >Roll</CheckBox>
+        <Button Grid.Column="0" Grid.Row="0" Width="100" Height="30" Click="Cancel_Click">Cancel</Button>
+        <CheckBox Grid.Row="2" Grid.Column="0" IsChecked="{Binding Path=Sirloin}" FontWeight="Bold" >Sirloin</CheckBox>
+        <CheckBox Grid.Row="3" Grid.Column="0" IsChecked="{Binding Path=Onion}" FontWeight="Bold" >Onion</CheckBox>
+        <CheckBox Grid.Row="4" Grid.Column="0" IsChecked="{Binding Path=Roll}" FontWeight="Bold" >Roll</CheckBox>
         <Button Grid.Column="2" Grid.Row="8" Width="100" Height="30" Click="DoneClick">Done</Button>
 
         <TextBlock Grid.Column="0" Grid.Row="1"  Width ="150" Height="50" FontWeight="Bold" FontSize="20" TextAlignment="Center"  Text="Customize"/>

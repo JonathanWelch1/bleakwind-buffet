@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BleakwindBuffet.Data;
+using BleakwindBuffet.Data.Drinks;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -20,13 +22,18 @@ namespace PointOfSale.Drinks
     public partial class CustomCandleHearthCoffee : UserControl
     {
         private MainWindow mw;
+        private CandlehearthCoffee CC;
+        private Order _l;
         /// <summary>
         /// Constructor for class
         /// </summary>
         /// <param name="sw">Main window being passed through</param>
-        public CustomCandleHearthCoffee(MainWindow sw)
+        public CustomCandleHearthCoffee(MainWindow sw, CandlehearthCoffee cc, Order l)
         {
             InitializeComponent();
+            CC = cc;
+            _l = l;
+            DataContext = CC;
             mw = sw;
         }
         /// <summary>
@@ -34,16 +41,22 @@ namespace PointOfSale.Drinks
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             mw.swapScreen(new ButtonControl(mw));
+            DataContext = _l;
+            if(DataContext is Order o)
+            {
+                var itemRemoved = CC;
+                o.Remove(itemRemoved);
+            }
         }
         /// <summary>
         /// Switches Screen
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Done_Click(object sender, RoutedEventArgs e)
         {
             mw.swapScreen(new ButtonControl(mw));
         }
@@ -77,7 +90,8 @@ namespace PointOfSale.Drinks
                     default:
                         throw new NotImplementedException();
                 }
-
+                CC.Size = s;
+                DataContext = CC;
             }
         }
     }

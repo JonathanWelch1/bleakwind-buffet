@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BleakwindBuffet.Data.Entrees;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -10,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BleakwindBuffet.Data;
 
 namespace PointOfSale.Entrees
 {
@@ -19,13 +21,18 @@ namespace PointOfSale.Entrees
     public partial class CustomBriarheartBurger : UserControl
     {
         private MainWindow mw;
+        private BriarheartBurger BB;
+        private Order _l;
         /// <summary>
         /// Constructor for class
         /// </summary>
         /// <param name="sw">Main window being passed through</param>
-        public CustomBriarheartBurger(MainWindow sw)
+        public CustomBriarheartBurger(MainWindow sw, BriarheartBurger bb, Order l)
         {
             InitializeComponent();
+            BB = bb;
+            _l = l;
+            DataContext = BB;
             mw = sw;
         }
 
@@ -34,9 +41,15 @@ namespace PointOfSale.Entrees
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             mw.swapScreen(new ButtonControl(mw));
+            DataContext = _l;
+            if (DataContext is Order o)
+            {
+                var itemRemoved = BB;
+                o.Remove(itemRemoved);
+            }
         }
         /// <summary>
         /// Switches Screen
