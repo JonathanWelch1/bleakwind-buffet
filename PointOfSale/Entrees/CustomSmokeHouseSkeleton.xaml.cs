@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BleakwindBuffet.Data;
+using PointOfSale.ComboFolder;
 
 namespace PointOfSale.Entrees
 {
@@ -23,13 +24,15 @@ namespace PointOfSale.Entrees
         private MainWindow mw;
         private SmokehouseSkeleton SS;
         private Order _l;
-        public CustomSmokeHouseSkeleton(MainWindow sw, SmokehouseSkeleton ss, Order l)
+        private ComboClass CC;
+        public CustomSmokeHouseSkeleton(MainWindow sw, ComboClass cc, SmokehouseSkeleton ss, Order l)
         {
             InitializeComponent();
             SS = ss;
             _l = l;
             DataContext = SS;
             mw = sw;
+            CC = cc;
         }
         /// <summary>
         /// Switches Screen
@@ -54,6 +57,14 @@ namespace PointOfSale.Entrees
         private void DoneClick(object sender, RoutedEventArgs e)
         {
             mw.swapScreen(new ButtonControl(mw));
+        }
+
+        void BackComboClick(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is Order o)
+            {
+                mw.swapScreen(new ComboMainScreen(mw, CC, o));
+            }
         }
     }
 }

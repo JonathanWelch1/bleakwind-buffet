@@ -6,4 +6,10 @@
     <LangVersion>8.0</LangVersion>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="RoundRegister">
+      <HintPath>C:\Users\Jonathan Welch\source\repos\bleakwind-buffet\Data\RoundRegister.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

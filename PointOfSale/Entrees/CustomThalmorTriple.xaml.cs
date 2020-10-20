@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BleakwindBuffet.Data;
+using PointOfSale.ComboFolder;
 
 namespace PointOfSale.Entrees
 {
@@ -23,18 +24,19 @@ namespace PointOfSale.Entrees
         private MainWindow mw;
         private ThalmorTriple TT;
         private Order _l;
-
+        private ComboClass CC;
         /// <summary>
         /// Constructor for class
         /// </summary>
         /// <param name="sw">Main window being passed through</param>
-        public CustomThalmorTriple(MainWindow sw, ThalmorTriple tt, Order l)
+        public CustomThalmorTriple(MainWindow sw, ComboClass cc,ThalmorTriple tt, Order l)
         {
             InitializeComponent();
             TT = tt;
             _l = l;
             DataContext = TT;
             mw = sw;
+            CC = cc;
         }
         /// <summary>
         /// Switches Screen
@@ -59,6 +61,14 @@ namespace PointOfSale.Entrees
         private void DoneClick(object sender, RoutedEventArgs e)
         {
             mw.swapScreen(new ButtonControl(mw));
+        }
+
+        void BackComboClick(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is Order o)
+            {
+                mw.swapScreen(new ComboMainScreen(mw, CC, o));
+            }
         }
     }
 }

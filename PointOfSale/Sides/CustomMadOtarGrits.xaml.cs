@@ -12,6 +12,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BleakwindBuffet.Data.Sides;
 using BleakwindBuffet.Data;
+using PointOfSale.ComboFolder;
 
 namespace PointOfSale.Sides
 {
@@ -23,17 +24,19 @@ namespace PointOfSale.Sides
         private MainWindow mw;
         private MadOtarGrits MO;
         private Order _l;
+        private ComboClass CC;
         /// <summary>
         /// Constructor for class
         /// </summary>
         /// <param name="sw">Main window being passed through</param>
-        public CustomMadOtarGrits(MainWindow sw, MadOtarGrits mo, Order l)
+        public CustomMadOtarGrits(MainWindow sw, ComboClass cc, MadOtarGrits mo, Order l)
         {
             InitializeComponent();
             MO = mo;
             _l = l;
             DataContext = MO;
             mw = sw;
+            CC = cc;
         }
         /// <summary>
         /// Switches Screen
@@ -58,6 +61,14 @@ namespace PointOfSale.Sides
         private void DoneClick(object sender, RoutedEventArgs e)
         {
             mw.swapScreen(new ButtonControl(mw));
+        }
+
+        void BackComboClick(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is Order o)
+            {
+                mw.swapScreen(new ComboMainScreen(mw, CC, o));
+            }
         }
     }
 }

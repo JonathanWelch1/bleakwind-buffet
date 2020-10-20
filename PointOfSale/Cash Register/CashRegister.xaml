@@ -1,0 +1,117 @@
+﻿<UserControl x:Class="PointOfSale.CashRegister"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale.Cash_Register"
+             mc:Ignorable="d" 
+             d:DesignHeight="700" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Background="LightGreen" Grid.Column="0" Grid.Row="1" Text="$100" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="25" FontWeight="Bold"/>
+        <TextBlock Background="LightGreen" Grid.Column="0" Grid.Row="2" Text="$50" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="25" FontWeight="Bold"/>
+        <TextBlock Background="LightGreen" Grid.Column="0" Grid.Row="3" Text="$20" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="25" FontWeight="Bold"/>
+        <TextBlock Background="LightGreen" Grid.Column="0" Grid.Row="4" Text="$10" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="25" FontWeight="Bold"/>
+        <TextBlock Background="LightGreen" Grid.Column="0" Grid.Row="5" Text="$5" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="25" FontWeight="Bold"/>
+        <TextBlock Background="LightGreen" Grid.Column="0" Grid.Row="6" Text="$2" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="25" FontWeight="Bold"/>
+        <TextBlock Background="LightGreen" Grid.Column="0" Grid.Row= "7" Text="$1" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="25" FontWeight="Bold"/>
+
+        <TextBlock Grid.Column="3" Grid.Row="2" Background="Goldenrod" Text="$1" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="25" FontWeight="Bold"/>
+        <TextBlock Grid.Column="3" Grid.Row="3" Background="Goldenrod" Text="50c" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="25" FontWeight="Bold"/>
+        <TextBlock Grid.Column="3" Grid.Row="4" Background="Goldenrod" Text="25c" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="25" FontWeight="Bold"/>
+        <TextBlock Grid.Column="3" Grid.Row="5" Background="Goldenrod" Text="10c" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="25" FontWeight="Bold"/>
+        <TextBlock Grid.Column="3" Grid.Row="6" Background="Goldenrod" Text="5c" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="25" FontWeight="Bold"/>
+        <TextBlock Grid.Column="3" Grid.Row="7" Background="Goldenrod" Text="1c" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="25" FontWeight="Bold"/>
+
+        <local:MoneyBox x:Name="OneHundredD" Grid.Column="1" Grid.Row="1" Value="{Binding Path=PaymentHundreds}"/>
+        <local:MoneyBox x:Name="FiftyD" Grid.Column="1" Grid.Row="2" Value="{Binding Path=PaymentFifties}"/>
+        <local:MoneyBox x:Name="TwentyD" Grid.Column="1" Grid.Row="3" Value="{Binding Path=PaymentTwenties}"/>
+        <local:MoneyBox x:Name="TenD" Grid.Column="1" Grid.Row="4" Value="{Binding Path=PaymentTens}"/>
+        <local:MoneyBox x:Name="FiveD"  Grid.Column="1" Grid.Row="5" Value="{Binding Path=PaymentFives}"/>
+        <local:MoneyBox x:Name="TwoD"  Grid.Column="1" Grid.Row="6" Value="{Binding Path=PaymentTwos}"/>
+        <local:MoneyBox x:Name="OneD" Grid.Column="1" Grid.Row="7" Value="{Binding Path=PaymentOnes}"/>
+
+        <TextBlock Text="{Binding Path=ChangeHundreds}" Grid.Column="2" Grid.Row="1" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <TextBlock Text="{Binding Path=ChangeFifties}" Grid.Column="2" Grid.Row="2" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <TextBlock Text="{Binding Path=ChangeTwenties}" Grid.Column="2" Grid.Row="3" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <TextBlock Text="{Binding Path=ChangeTens}" Grid.Column="2" Grid.Row="4" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <TextBlock Text="{Binding Path=ChangeFives}" Grid.Column="2" Grid.Row="5" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <TextBlock Text="{Binding Path=ChangeTwos}" Grid.Column="2" Grid.Row="6" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <TextBlock Text="{Binding Path=ChangeOnes}" Grid.Column="2" Grid.Row="7" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+        <local:MoneyBox x:Name="OneDC" Grid.Column="4" Grid.Row="2" Value="{Binding Path=PaymentDollars}"/>
+        <local:MoneyBox x:Name="FiftyC" Grid.Column="4" Grid.Row="3" Value="{Binding Path=PaymentHalfDollars}"/>
+        <local:MoneyBox x:Name="TwentyFiveC" Grid.Column="4" Grid.Row="4" Value="{Binding Path=PaymentQuarters}"/>
+        <local:MoneyBox x:Name="TenC" Grid.Column="4" Grid.Row="5" Value="{Binding Path=PaymentDimes}"/>
+        <local:MoneyBox x:Name="FiveDC" Grid.Column="4" Grid.Row="6" Value="{Binding Path=PaymentNickels}"/>
+        <local:MoneyBox x:Name="OneC" Grid.Column="4" Grid.Row="7" Value="{Binding Path=PaymentPennies}"/>
+
+        <TextBlock Text="{Binding Path=ChangeDollars}" Grid.Column="5" Grid.Row="2" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <TextBlock Text="{Binding Path=ChangeHalfDollars}" Grid.Column="5" Grid.Row="3" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <TextBlock Text="{Binding Path=ChangeQuarters}" Grid.Column="5" Grid.Row="4" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <TextBlock Text="{Binding Path=ChangeDimes}" Grid.Column="5" Grid.Row="5" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <TextBlock Text="{Binding Path=ChangeNickels}" Grid.Column="5" Grid.Row="6" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <TextBlock Text="{Binding Path=ChangePennies}" Grid.Column="5" Grid.Row="7" FontSize="30" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+        <StackPanel Grid.Column="1">
+            <TextBlock Text="From" FontSize="20" HorizontalAlignment="Center" FontWeight="Bold"/>
+            <TextBlock Text="Customer" FontSize="20" HorizontalAlignment="Center" FontWeight="Bold"/>
+        </StackPanel>
+
+
+        <StackPanel Grid.Column="4" Grid.Row="1">
+            <TextBlock Text="From" FontSize="20" HorizontalAlignment="Center" FontWeight="Bold"/>
+            <TextBlock Text="Customer" FontSize="20" HorizontalAlignment="Center" FontWeight="Bold"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="2">
+            <TextBlock Text="Give as" FontSize="20" HorizontalAlignment="Center" FontWeight="Bold"/>
+            <TextBlock Text="Change" FontSize="20" HorizontalAlignment="Center" FontWeight="Bold"/>
+        </StackPanel>
+        
+        <StackPanel Grid.Column="5" Grid.Row="1">
+            <TextBlock Text="Give as" FontSize="20" HorizontalAlignment="Center" FontWeight="Bold"/>
+            <TextBlock Text="Change" FontSize="20" HorizontalAlignment="Center" FontWeight="Bold"/>
+        </StackPanel>
+
+        <Border Grid.Column="1" Grid.Row="8" BorderBrush="Black" BorderThickness="1" Margin="10">
+            <TextBlock Name="TotalSaleTextBlock" Text="" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" FontWeight="Black"/>
+        </Border>
+
+        <Border Background="red" Grid.Column="3" Grid.Row="8" BorderBrush="Black" BorderThickness="1" Margin="10">
+            <TextBlock  Text="{Binding Path=AmountOwedDisplayed}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" FontWeight="Black"/>
+        </Border>
+
+        <Border Background="ForestGreen" Grid.Column="5" Grid.Row="8" BorderBrush="Black" BorderThickness="1" Margin="10">
+            <TextBlock  Text="{Binding Path=ChangedOwe}" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" FontWeight="Black"/>
+        </Border>
+
+        <TextBlock Grid.Row="8" Grid.Column="0" Text="Total Sale:" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="20" FontWeight="Bold"/>
+        <TextBlock Grid.Row="8" Grid.Column="2" Text="Amount Due:" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="17" FontWeight="Bold"/>
+        <TextBlock Grid.Row="8" Grid.Column="4" Text="Change Due:" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="15" FontWeight="Bold"/>
+
+        <Button Grid.Column="6" Grid.Row="8" FontSize="20" FontWeight="DemiBold" Click="FinalizeSaleClickEvent" Name="FinishClick">Finalize Sale</Button>
+        <Button Grid.Column="6" Grid.Row="1" FontSize="20" FontWeight="DemiBold" Name="GoBackClick" Click="GoBackClick_Click">Go Back</Button>
+
+    </Grid>
+</UserControl>

@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BleakwindBuffet.Data;
+using PointOfSale.ComboFolder;
 
 namespace PointOfSale.Entrees
 {
@@ -23,11 +24,12 @@ namespace PointOfSale.Entrees
         private MainWindow mw;
         private GardenOrcOmelette go;
         private Order _l;
+        private ComboClass CC;
         /// <summary>
         /// Constructor for class
         /// </summary>
         /// <param name="sw">Main window being passed through</param>
-        public CustomGardenOrcOmelette(MainWindow sw, GardenOrcOmelette g, Order l)
+        public CustomGardenOrcOmelette(MainWindow sw, ComboClass cc,GardenOrcOmelette g, Order l)
         {
 
             InitializeComponent();
@@ -35,6 +37,7 @@ namespace PointOfSale.Entrees
             _l = l;
             DataContext = go;
             mw = sw;
+            CC = cc;
         }
         /// <summary>
         /// Switches Screen
@@ -59,6 +62,14 @@ namespace PointOfSale.Entrees
         private void DoneClick(object sender, RoutedEventArgs e)
         {
             mw.swapScreen(new ButtonControl(mw));
+        }
+
+        void BackComboClick(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is Order o)
+            {
+                mw.swapScreen(new ComboMainScreen(mw, CC, o));
+            }
         }
     }
 }

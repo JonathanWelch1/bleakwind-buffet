@@ -13,6 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Size = BleakwindBuffet.Data.Enums.Size;
 using BleakwindBuffet.Data;
+using PointOfSale.ComboFolder;
 
 namespace PointOfSale.Drinks
 {
@@ -24,17 +25,19 @@ namespace PointOfSale.Drinks
         private MainWindow mw;
         private WarriorWater WW;
         private Order _l;
+        private ComboClass CC;
         /// <summary>
         /// Constructor for class
         /// </summary>
         /// <param name="sw">Main window being passed through</param>
-        public CustomWarriorWater(MainWindow sw, WarriorWater ww, Order l)
+        public CustomWarriorWater(MainWindow sw, ComboClass cc,WarriorWater ww, Order l)
         {
             InitializeComponent();
             WW = ww;
             _l = l;
             DataContext = WW;
             mw = sw;
+            CC = cc;
         }
         /// <summary>
         /// Switches Screen
@@ -91,6 +94,14 @@ namespace PointOfSale.Drinks
                 }
                 WW.Size = s;
                 DataContext = WW;
+            }
+        }
+
+        void BackComboClick(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is Order o)
+            {
+                mw.swapScreen(new ComboMainScreen(mw, CC, o));
             }
         }
     }

@@ -14,6 +14,7 @@ using Size = BleakwindBuffet.Data.Enums.Size;
 using Flavor = BleakwindBuffet.Data.Enums.SodaFlavor;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data;
+using PointOfSale.ComboFolder;
 
 namespace PointOfSale.Drinks
 {
@@ -25,17 +26,19 @@ namespace PointOfSale.Drinks
         private MainWindow mw;
         private SailorSoda SS;
         private Order _l;
+        private ComboClass CC;
         /// <summary>
         /// Constructor for class
         /// </summary>
         /// <param name="sw">Main window being passed through</param>
-        public CustomSailorSoda(MainWindow sw, SailorSoda ss, Order l)
+        public CustomSailorSoda(MainWindow sw, ComboClass cc, SailorSoda ss, Order l)
         {
             InitializeComponent();
             SS = ss;
             _l = l;
             DataContext = SS;
             mw = sw;
+            CC = cc;
         }
         /// <summary>
         /// Switches Screen
@@ -161,6 +164,14 @@ namespace PointOfSale.Drinks
                 }
                 SS.Flavor = f;
                 DataContext = SS;
+            }
+        }
+
+        void BackComboClick(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is Order o)
+            {
+                mw.swapScreen(new ComboMainScreen(mw, CC, o));
             }
         }
     }

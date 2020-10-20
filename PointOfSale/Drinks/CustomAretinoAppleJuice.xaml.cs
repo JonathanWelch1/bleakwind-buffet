@@ -13,6 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Size = BleakwindBuffet.Data.Enums.Size;
 using BleakwindBuffet.Data;
+using PointOfSale.ComboFolder;
 
 namespace PointOfSale.Drinks
 {
@@ -24,15 +25,17 @@ namespace PointOfSale.Drinks
         private MainWindow mw;
         private AretinoAppleJuice AA;
         private Order _l;
+        private ComboClass CC;
         /// <summary>
         /// Constructor for class
         /// </summary>
         /// <param name="sw">Main window being passed through</param>
-        public CustomAretinoAppleJuice(MainWindow sw, AretinoAppleJuice aj, Order l )
+        public CustomAretinoAppleJuice(MainWindow sw, ComboClass cc,AretinoAppleJuice aj, Order l )
         {
             InitializeComponent();
             AA = aj;
             _l = l;
+            CC = cc;
             DataContext = aj;
             mw = sw;
         }
@@ -83,6 +86,12 @@ namespace PointOfSale.Drinks
             
         }
 
+        void BackComboClick(object sender, RoutedEventArgs e)
+        {
+
+                mw.swapScreen(new ComboMainScreen(mw, CC, _l));
+
+        }
 
         /// <summary>
         /// Switches Screen

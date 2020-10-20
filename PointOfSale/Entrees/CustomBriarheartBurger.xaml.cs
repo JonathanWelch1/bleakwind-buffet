@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BleakwindBuffet.Data;
+using PointOfSale.ComboFolder;
 
 namespace PointOfSale.Entrees
 {
@@ -23,17 +24,19 @@ namespace PointOfSale.Entrees
         private MainWindow mw;
         private BriarheartBurger BB;
         private Order _l;
+        private ComboClass CC;
         /// <summary>
         /// Constructor for class
         /// </summary>
         /// <param name="sw">Main window being passed through</param>
-        public CustomBriarheartBurger(MainWindow sw, BriarheartBurger bb, Order l)
+        public CustomBriarheartBurger(MainWindow sw, ComboClass cc, BriarheartBurger bb, Order l)
         {
             InitializeComponent();
             BB = bb;
             _l = l;
             DataContext = BB;
             mw = sw;
+            CC = cc;
         }
 
         /// <summary>
@@ -59,6 +62,14 @@ namespace PointOfSale.Entrees
         private void DoneClick(object sender, RoutedEventArgs e)
         {
             mw.swapScreen(new ButtonControl(mw));
+        }
+
+        void BackComboClick(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is Order o)
+            {
+                mw.swapScreen(new ComboMainScreen(mw, CC, o));
+            }
         }
     }
 }

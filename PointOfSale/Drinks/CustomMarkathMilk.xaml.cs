@@ -13,6 +13,7 @@ using System.Windows.Shapes;
 using BleakwindBuffet.Data.Drinks;
 using Size = BleakwindBuffet.Data.Enums.Size;
 using BleakwindBuffet.Data;
+using PointOfSale.ComboFolder;
 
 namespace PointOfSale.Drinks
 {
@@ -24,13 +25,15 @@ namespace PointOfSale.Drinks
         private MainWindow mw;
         private MarkarthMilk MM;
         private Order _l;
+        private ComboClass CC;
         /// <summary>
         /// Constructor for class
         /// </summary>
         /// <param name="sw">Main window being passed through</param>
-        public CustomMarkathMilk(MainWindow sw, MarkarthMilk mm, Order l)
+        public CustomMarkathMilk(MainWindow sw, ComboClass cc,MarkarthMilk mm, Order l)
         {
             InitializeComponent();
+            CC = cc;
             MM = mm;
             _l = l;
             DataContext = MM;
@@ -91,6 +94,13 @@ namespace PointOfSale.Drinks
                 }
                 MM.Size = s;
                 DataContext = MM;
+            }
+        }
+        void BackComboClick(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is Order o)
+            {
+                mw.swapScreen(new ComboMainScreen(mw, CC, o));
             }
         }
     }

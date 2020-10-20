@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BleakwindBuffet.Data;
+using PointOfSale.ComboFolder;
 
 namespace PointOfSale.Entrees
 {
@@ -23,17 +24,19 @@ namespace PointOfSale.Entrees
         private MainWindow mw;
         private DoubleDraugr DD;
         private Order _l;
+        private ComboClass CC;
         /// <summary>
         /// Constructor for class
         /// </summary>
         /// <param name="sw">Main window being passed through</param>
-        public CustomDoubleDraugr(MainWindow sw, DoubleDraugr dd, Order l)
+        public CustomDoubleDraugr(MainWindow sw, ComboClass cc,  DoubleDraugr dd, Order l)
         {
             InitializeComponent();
             DD = dd;
             _l = l;
             DataContext = DD;
             mw = sw;
+            CC = cc;
         }
         /// <summary>
         /// Switches Screen
@@ -58,6 +61,14 @@ namespace PointOfSale.Entrees
         private void DoneClick(object sender, RoutedEventArgs e)
         {
             mw.swapScreen(new ButtonControl(mw));
+        }
+
+        void BackComboClick(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is Order o)
+            {
+                mw.swapScreen(new ComboMainScreen(mw, CC, o));
+            }
         }
     }
 }

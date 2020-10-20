@@ -12,6 +12,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
+using PointOfSale.ComboFolder;
+
 namespace PointOfSale.Entrees
 {
     /// <summary>
@@ -23,14 +25,15 @@ namespace PointOfSale.Entrees
         private MainWindow mw;
         private ThugsTBone TT;
         private Order _l;
-
-        public CustomThugsTBone(MainWindow sw, ThugsTBone tt, Order l)
+        private ComboClass CC;
+        public CustomThugsTBone(MainWindow sw, ComboClass cc,ThugsTBone tt, Order l)
         {
             InitializeComponent();
             mw = sw;
             TT = tt;
             _l = l;
             DataContext = TT;
+            CC = cc;
         }
 
         /// <summary>
@@ -56,6 +59,14 @@ namespace PointOfSale.Entrees
         private void DoneClick(object sender, RoutedEventArgs e)
         {
             mw.swapScreen(new ButtonControl(mw));
+        }
+
+        void BackComboClick(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is Order o)
+            {
+                mw.swapScreen(new ComboMainScreen(mw, CC, o));
+            }
         }
     }
 }

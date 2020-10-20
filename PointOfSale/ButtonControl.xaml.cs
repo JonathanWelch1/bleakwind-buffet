@@ -17,6 +17,9 @@ using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.Data.Sides;
+using System.Threading;
+using PointOfSale.ComboFolder;
+using PointOfSale.Cash_Register;
 
 namespace PointOfSale
 {
@@ -26,7 +29,7 @@ namespace PointOfSale
     public partial class ButtonControl : UserControl
     {
 
-
+        
         public MainWindow mw
         {
             get; set;        
@@ -39,6 +42,27 @@ namespace PointOfSale
         {
             InitializeComponent();
             mw = sw;
+        }
+
+        void PaymentOptionsClick(object sender, RoutedEventArgs e)
+        {
+            
+            if(DataContext is Order l)
+            {
+                OrderControl oc = new OrderControl(mw);
+                CashRegister cr = new CashRegister(mw, l, oc);
+                CashRegisterViewModelClass Cr = new CashRegisterViewModelClass(cr, l); 
+                mw.swapScreen(new PaymentScreen(mw, l , oc, Cr));
+            }
+            
+        }
+
+        void CancelOrderClick(object sender, RoutedEventArgs e)
+        {
+            DependencyObject Parent = this;
+            Order o = (Order)DataContext;
+            o.Clear();
+            DataContext = o;
         }
 
         void newOrderClick(object sender, RoutedEventArgs e)
@@ -59,11 +83,11 @@ namespace PointOfSale
         void AretinoAppleJuiceClick(object sender, RoutedEventArgs e)
         {
             AretinoAppleJuice aj = new AretinoAppleJuice();
+            ComboClass CC = new ComboClass(null, null, null);
             if(DataContext is Order l )
             {
                 l.Add(aj);
-                mw.swapScreen(new CustomAretinoAppleJuice(mw, aj, l));
-                
+                mw.swapScreen(new CustomAretinoAppleJuice(mw, CC, aj, l));
             }
             
         }
@@ -75,10 +99,11 @@ namespace PointOfSale
         private void CC_Click(object sender, RoutedEventArgs e)
         {
             CandlehearthCoffee cc = new CandlehearthCoffee();
-            if(DataContext is Order l)
+            ComboClass CC = new ComboClass(null, null, null);
+            if (DataContext is Order l)
             {
                 l.Add(cc);
-                mw.Border.Child = new CustomCandleHearthCoffee(mw, cc , l);
+                mw.Border.Child = new CustomCandleHearthCoffee(mw, CC,  cc , l);
             }
             
         }
@@ -91,10 +116,11 @@ namespace PointOfSale
         private void MM_Click(object sender, RoutedEventArgs e)
         {
             MarkarthMilk mm = new MarkarthMilk();
-            if(DataContext is Order l)
+            ComboClass CC = new ComboClass(null, null, null);
+            if (DataContext is Order l)
             {
                 l.Add(mm);
-                mw.swapScreen(new CustomMarkathMilk(mw, mm, l));
+                mw.swapScreen(new CustomMarkathMilk(mw, CC, mm, l));
             }
             
         }
@@ -106,10 +132,11 @@ namespace PointOfSale
         private void BriarheartBurgerClick(object sender, RoutedEventArgs e)
         {
             BriarheartBurger bb = new BriarheartBurger();
-            if(DataContext is Order l)
+            ComboClass CC = new ComboClass(null, null, null);
+            if (DataContext is Order l)
             {
                 l.Add(bb);
-                mw.swapScreen(new CustomBriarheartBurger(mw, bb , l));
+                mw.swapScreen(new CustomBriarheartBurger(mw, CC, bb , l));
             }
             
         }
@@ -121,10 +148,11 @@ namespace PointOfSale
         private void DoubleDraugrClick(object sender, RoutedEventArgs e)
         {
             DoubleDraugr dd = new DoubleDraugr();
-            if(DataContext is Order l)
+            ComboClass CC = new ComboClass(null, null, null);
+            if (DataContext is Order l)
             {
                 l.Add(dd);
-                mw.swapScreen(new CustomDoubleDraugr(mw, dd, l));
+                mw.swapScreen(new CustomDoubleDraugr(mw, CC, dd, l));
             }
             
         }
@@ -136,10 +164,11 @@ namespace PointOfSale
         private void GardenOrcOmelleteClick(object sender, RoutedEventArgs e)
         {
             GardenOrcOmelette go = new GardenOrcOmelette();
+            ComboClass CC = new ComboClass(null, null, null);
             if (DataContext is Order l)
             {
                 l.Add(go);
-                mw.swapScreen(new CustomGardenOrcOmelette(mw, go , l));
+                mw.swapScreen(new CustomGardenOrcOmelette(mw, CC, go , l));
             }
             
         }
@@ -152,10 +181,11 @@ namespace PointOfSale
         {
 
             PhillyPoacher pp = new PhillyPoacher();
-            if(DataContext is Order l)
+            ComboClass CC = new ComboClass(null, null, null);
+            if (DataContext is Order l)
             {
                 l.Add(pp);
-                mw.swapScreen(new CustomPhillyPoacher(mw, pp , l));
+                mw.swapScreen(new CustomPhillyPoacher(mw, CC, pp , l));
             }
             
         }
@@ -167,10 +197,11 @@ namespace PointOfSale
         private void SmokehouseSkeletonClick(object sender, RoutedEventArgs e)
         {
             SmokehouseSkeleton ss = new SmokehouseSkeleton();
-            if(DataContext is Order l)
+            ComboClass CC = new ComboClass(null, null, null);
+            if (DataContext is Order l)
             {
                 l.Add(ss);
-                mw.swapScreen(new CustomSmokeHouseSkeleton(mw, ss, l));
+                mw.swapScreen(new CustomSmokeHouseSkeleton(mw, CC, ss, l));
             }
             
         }
@@ -182,10 +213,11 @@ namespace PointOfSale
         private void ThalmorTripleClick(object sender, RoutedEventArgs e)
         {
             ThalmorTriple tt = new ThalmorTriple();
-            if(DataContext is Order l)
+            ComboClass CC = new ComboClass(null, null, null);
+            if (DataContext is Order l)
             {
                 l.Add(tt);
-                mw.swapScreen(new CustomThalmorTriple(mw, tt, l));
+                mw.swapScreen(new CustomThalmorTriple(mw, CC,  tt, l));
             }
             
         }
@@ -197,10 +229,11 @@ namespace PointOfSale
         private void ThugsTBoneClick(object sender, RoutedEventArgs e)
         {
             ThugsTBone tt = new ThugsTBone();
+            ComboClass CC = new ComboClass(null, null, null);
             if (DataContext is Order l)
             {
                 l.Add(tt);
-                mw.swapScreen(new CustomThugsTBone(mw, tt, l));
+                mw.swapScreen(new CustomThugsTBone(mw, CC, tt, l));
             }
         }
 
@@ -212,10 +245,11 @@ namespace PointOfSale
         private void SSF_Click(object sender, RoutedEventArgs e)
         {
             SailorSoda ss = new SailorSoda();
-            if(DataContext is Order l)
+            ComboClass CC = new ComboClass(null, null, null);
+            if (DataContext is Order l)
             {
                 l.Add(ss);
-                mw.swapScreen(new CustomSailorSoda(mw, ss, l));
+                mw.swapScreen(new CustomSailorSoda(mw, CC, ss, l));
             }
             
         }
@@ -227,10 +261,11 @@ namespace PointOfSale
         private void WW_Click(object sender, RoutedEventArgs e)
         {
             WarriorWater ww = new WarriorWater();
-            if(DataContext is Order l)
+            ComboClass CC = new ComboClass(null, null, null);
+            if (DataContext is Order l)
             {
                 l.Add(ww);
-                mw.swapScreen(new CustomWarriorWater(mw, ww, l));
+                mw.swapScreen(new CustomWarriorWater(mw, CC, ww, l));
             }
             
         }
@@ -242,10 +277,11 @@ namespace PointOfSale
         private void DragonbornWaffleFriesClick(object sender, RoutedEventArgs e)
         {
             DragonbornWaffleFries dw = new DragonbornWaffleFries();
-            if(DataContext is Order l)
+            ComboClass CC = new ComboClass(null, null, null);
+            if (DataContext is Order l)
             {
                 l.Add(dw);
-                mw.swapScreen(new CustomDragonbornWaffleFries(mw, dw, l));
+                mw.swapScreen(new CustomDragonbornWaffleFries(mw, CC, dw, l));
             }
             
         }
@@ -257,10 +293,11 @@ namespace PointOfSale
         private void FriedMiraakClick(object sender, RoutedEventArgs e)
         {
             FriedMiraak fm = new FriedMiraak();
-            if(DataContext is Order l)
+            ComboClass CC = new ComboClass(null, null, null);
+            if (DataContext is Order l)
             {
                 l.Add(fm);
-                mw.swapScreen(new CustomFriedMiraak(mw, fm, l));
+                mw.swapScreen(new CustomFriedMiraak(mw, CC, fm, l));
             }
             
         }
@@ -272,10 +309,11 @@ namespace PointOfSale
         private void MadOtarGritsClick(object sender, RoutedEventArgs e)
         {
             MadOtarGrits mm = new MadOtarGrits();
-            if(DataContext is Order l)
+            ComboClass CC = new ComboClass(null, null, null);
+            if (DataContext is Order l)
             {
                 l.Add(mm);
-                mw.swapScreen(new CustomMadOtarGrits(mw, mm , l));
+                mw.swapScreen(new CustomMadOtarGrits(mw, CC, mm , l));
             }
 
         }
@@ -287,12 +325,23 @@ namespace PointOfSale
         private void VokunSaladClick(object sender, RoutedEventArgs e)
         {
             VokunSalad vs = new VokunSalad();
-            if(DataContext is Order l)
+            ComboClass CC = new ComboClass(null, null, null);
+            if (DataContext is Order l)
             {
                 l.Add(vs);
-                mw.swapScreen(new CustomVokunSalad(mw, vs , l));
+                mw.swapScreen(new CustomVokunSalad(mw, CC, vs , l));
             }
             
+        }
+
+        private void CreateComboClick(object sender, RoutedEventArgs e)
+        {
+            ComboClass comboClass = new ComboClass(new DoubleDraugr(), new SailorSoda(), new VokunSalad());
+            if(DataContext is Order l)
+            {
+                l.Add(comboClass);
+                mw.swapScreen(new ComboMainScreen(mw, comboClass, l));
+            }
         }
     }
 }

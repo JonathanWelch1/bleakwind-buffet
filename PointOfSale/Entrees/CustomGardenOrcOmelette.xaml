@@ -31,6 +31,7 @@
         <CheckBox Grid.Row="4" Grid.Column="0" IsChecked="{Binding Path=Tomato}" FontWeight="Bold" >Tomato</CheckBox>
         <CheckBox Grid.Row="5" Grid.Column="0" IsChecked="{Binding Path=Cheddar}" FontWeight="Bold" >Cheddar</CheckBox>
         <Button Grid.Column="2" Grid.Row="8" Width="100" Height="30" Click="DoneClick">Done</Button>
+        <Button Grid.Column="2" Grid.Row="7" Width="100" Height="30" Click="BackComboClick">Back to Combo</Button>
 
         <TextBlock Grid.Column="0" Grid.Row="1"  Width ="150" Height="50" FontWeight="Bold" FontSize="20" TextAlignment="Center"  Text="Customize"/>
     </Grid>

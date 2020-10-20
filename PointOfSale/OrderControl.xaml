@@ -57,8 +57,8 @@
                                 <TextBlock Text="Calories of Item, "/>
                                 <TextBlock Text="{Binding Path=Calories}"/>
                             </StackPanel>
-                            <Button Name="EditOrder" Content="Edit Current Item"/>
-                            <Button Name="DeleteOrder" Content="Delete Current Item"/>
+                            <Button Name="EditOrder" Content="Edit Current Item" Click="EditItem"/>
+                            <Button Name="DeleteOrder" Content="Delete Current Item" Click="Delete"/>
                         </StackPanel>
                     </StackPanel>
                 </DataTemplate>

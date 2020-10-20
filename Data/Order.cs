@@ -25,6 +25,8 @@ namespace BleakwindBuffet.Data
             nextOrderNumber++;
         }
 
+
+
         public static int nextOrderNumber = 1;
 
         public int Number { get; set; }
@@ -63,7 +65,7 @@ namespace BleakwindBuffet.Data
             get
             {
                 double tax;
-                tax = Subtotal + salesTaxRate;
+                tax = Subtotal * SalesTaxRate;
                 return tax;
             }
             
@@ -134,10 +136,16 @@ namespace BleakwindBuffet.Data
 
         public void Clear()
         {
-            foreach(IOrderItem item in order)
-            {
-                item.PropertyChanged -= CollectionItemChangedListener;
-            }
+               foreach(IOrderItem item in order)
+                {
+                    item.PropertyChanged -= CollectionItemChangedListener;
+                }
+
+            order = new List<IOrderItem>();
+            OnPropertyChange("Subtotal");
+            OnPropertyChange("Tax");
+            OnPropertyChange("Total");
+            OnPropertyChange("Calories");
             order.Clear();
         }
 

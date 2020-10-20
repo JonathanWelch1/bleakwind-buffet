@@ -1,5 +1,6 @@
 ﻿using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Drinks;
+using PointOfSale.ComboFolder;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -24,13 +25,15 @@ namespace PointOfSale.Drinks
         private MainWindow mw;
         private CandlehearthCoffee CC;
         private Order _l;
+        private ComboClass C;
         /// <summary>
         /// Constructor for class
         /// </summary>
         /// <param name="sw">Main window being passed through</param>
-        public CustomCandleHearthCoffee(MainWindow sw, CandlehearthCoffee cc, Order l)
+        public CustomCandleHearthCoffee(MainWindow sw, ComboClass c, CandlehearthCoffee cc, Order l)
         {
             InitializeComponent();
+            C = c;
             CC = cc;
             _l = l;
             DataContext = CC;
@@ -92,6 +95,14 @@ namespace PointOfSale.Drinks
                 }
                 CC.Size = s;
                 DataContext = CC;
+            }
+        }
+
+        void BackComboClick(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is Order o)
+            {
+                mw.swapScreen(new ComboMainScreen(mw, C, o));
             }
         }
     }
