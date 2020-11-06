@@ -7,6 +7,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="ButtonControl.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Include="ButtonControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="RoundRegister">
       <HintPath>C:\Users\Jonathan Welch\source\repos\bleakwind-buffet\Data\RoundRegister.dll</HintPath>
     </Reference>

@@ -9,6 +9,7 @@ using BleakwindBuffet.Data.Drinks;
 using System;
 using System.Collections.Generic;
 using BleakwindBuffet.Data.Enums;
+using System.Linq;
 
 namespace BleakwindBuffet.Data
 {
@@ -74,11 +75,123 @@ namespace BleakwindBuffet.Data
         /// <returns></returns>
         public static IEnumerable<IOrderItem> FullMenu()
         {
-            List<IOrderItem> fullMenu = new List<IOrderItem>();
-            fullMenu.AddRange(Sides());
-            fullMenu.AddRange(Entrees());
-            fullMenu.AddRange(Drinks());
-            return fullMenu;
+            List<IOrderItem> fullmenu = new List<IOrderItem>();
+            fullmenu.AddRange(Sides());
+            fullmenu.AddRange(Entrees());
+            fullmenu.AddRange(Drinks());
+            return fullmenu;
         }
+
+        public static IEnumerable<IOrderItem> All { get { return FullMenu(); } }
+
+        /// <summary>
+        /// Searches algorithm
+        /// </summary>
+        /// <param name="term">Name of the item being passed throughg</param>
+        /// <returns></returns>
+        public static IEnumerable<IOrderItem> Search(string term)
+        {
+            List<IOrderItem> results = new List<IOrderItem>();
+
+            if (term == null)
+            {
+                return All;
+            }
+
+            foreach(IOrderItem item in All)
+            {
+                if (item.ToString() != null && item.ToString().ToLower().Contains(term))
+                {
+                    results.Add(item);
+                }
+            }
+            return results;
+        }
+        /// <summary>
+        /// A filter for the user to input certain calories
+        /// </summary>
+        /// <param name="item">Item being passed through</param>
+        /// <param name="min">Minimal Calories being passed in</param>
+        /// <param name="max">Maximal Calories being passed in</param>
+        /// <returns>a list of items within the specified range</returns>
+        public static IEnumerable<IOrderItem> Calories(IEnumerable<IOrderItem> item, int? min, int? max)
+        {
+            var results = new List<IOrderItem>();
+            if(min == null && max == null)
+            {
+                return item;
+            }
+
+            if(min == null)
+            {
+                foreach(IOrderItem i in item)
+                {
+                    if (i.Calories <= max) results.Add(i);
+                }
+                return results;
+            }
+
+            if(max == null)
+            {
+                foreach(IOrderItem i in item)
+                {
+                    if (i.Calories >= min) results.Add(i);
+                }
+                return results;
+            }
+
+            foreach(IOrderItem i in item)
+            {
+                if(i.Calories >= min && i.Calories <= max)
+                {
+                    results.Add(i);
+                }
+            }
+            return results;
+        }
+
+        /// <summary>
+        /// A
+        /// </summary>
+        /// <param name="item"></param>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <returns></returns>
+        public static IEnumerable<IOrderItem> Price(IEnumerable<IOrderItem> item, double? min, double? max)
+        {
+            var results = new List<IOrderItem>();
+            if (min == null && max == null)
+            {
+                return item;
+            }
+
+            if (min == null)
+            {
+                foreach (IOrderItem i in item)
+                {
+                    if (i.Price <= max) results.Add(i);
+                }
+                return results;
+            }
+
+            if (max == null)
+            {
+                foreach (IOrderItem i in item)
+                {
+                    if (i.Price >= min) results.Add(i);
+                }
+                return results;
+            }
+
+            foreach (IOrderItem i in item)
+            {
+                if (i.Price >= min && i.Price <= max)
+                {
+                    results.Add(i);
+                }
+            }
+            return results;
+        }
+
     }
 }

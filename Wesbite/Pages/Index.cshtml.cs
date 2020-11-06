@@ -13,9 +13,14 @@ namespace Wesbite.Pages
 {
     public class IndexModel : PageModel
     {
-        public void OnGet()
-        {
 
+        public IEnumerable<IOrderItem> MenuItems { get; set; }
+
+        public string SearchTerms { get; set; }
+
+        public void OnGet(int? CalMin, int? CalMax, double? PriceMin, double)
+        {
+            MenuItems = Menu.Search(SearchTerms);
         }
     }
 }
