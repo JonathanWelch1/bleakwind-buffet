@@ -10,33 +10,44 @@
 
 
     <div id="search">
-        <input type="text" name="SearchTerms" value="@Model.SearchTerms"/>
-        <input type="submit" value="SearchTerms"/>
+        <input type="text" name="SearchTerms" value="@Model.SearchTerms" />
+        <input type="submit" value="SearchTerms" />
     </div>
 
-    <div id="filters">
-        <label>
-            <input type="checkbox" name="EntreesButton" />
-        </label>
 
+    <div id="filters">
+
+        <h4>Menu Item Types</h4>
+        <label>
+            <input type="checkbox" name="MenuType" value="Entrees" checked="@Model.MenuType.Contains("Entrees")" />
+            Entrees
+        </label>
+        <label>
+            <input type="checkbox" name="MenuType" value="Sides" checked="@Model.MenuType.Contains("Sides")" />
+            Sides
+        </label>
+        <label>
+            <input type="checkbox" name="MenuType" value="Drinks" checked="@Model.MenuType.Contains("Drinks")" />
+            Drinks
+        </label>
 
         <h4>Calories</h4>
         <div>
             Between
-            <input name="CalMin" type="number" min="0" max="2000" step="1" placeholder="min" />
+            <input name="CalMin" type="number" min="0" max="2000" step="1" placeholder="min" value="@Model.CalMin" />
             and
-            <input name="CalMax" type="number" min="0" max="2000" step="1" placeholder="min" />
+            <input name="CalMax" type="number" min="0" max="2000" step="1" placeholder="min" value="@Model.CalMax" />
         </div>
 
         <h4>Price</h4>
         <div>
             Between
-            <input name="PriceMin" type="number" min="0" max="20" step=".1" placeholder="min" />
+            <input name="PriceMin" type="number" min="0" max="20" step=".1" placeholder="min" value="@Model.PriceMin" />
             and
-            <input name="PriceMax" type="number" min="0" max="20" step=".1" placeholder="min" />
+            <input name="PriceMax" type="number" min="0" max="20" step=".1" placeholder="min" value="@Model.PriceMax" />
         </div>
     </div>
-
+</form>
 
     <div id="results">
         <h1>Welcome to Bleakwind Buffet</h1>
@@ -49,34 +60,48 @@
 
             <h2 id="MenuItem">Entrees</h2>
             <div>
-                @foreach (BleakwindBuffet.Data.Entrees.Entree e in BleakwindBuffet.Data.Menu.Entrees())
+                @foreach (BleakwindBuffet.Data.IOrderItem item in Model.MenuItems)
                 {
-                    <div id="Item">@e.ToString()</div>
-                    <div id="Item">Price: $@e.Price</div>
-                    <div id="Item">Calories: @e.Calories</div>
+                    if (item is BleakwindBuffet.Data.Entrees.Entree)
+                    {
+
+                        <div id="Item">@item.ToString()</div>
+                        <div id="Item">Price: $@item.Price</div>
+                        <div id="Item">Calories: @item.Calories</div>
+                        <p></p>
+                    }
+
                 }
             </div>
 
             <h2 id="MenuItem">Sides</h2>
             <div>
-                @foreach (BleakwindBuffet.Data.Sides.Side s in BleakwindBuffet.Data.Menu.Sides())
+                @foreach (BleakwindBuffet.Data.IOrderItem item in Model.MenuItems)
                 {
-                    <div id="Item2">@s.ToString()</div>
-                    <div id="Item2">Price: $@s.Price</div>
-                    <div id="Item2">Calories :@s.Calories</div>
+                    if (item is BleakwindBuffet.Data.Sides.Side)
+                    {
+                        <div id="Item2">@item.ToString()</div>
+                        <div id="Item2">Price: $@item.Price</div>
+                        <div id="Item2">Calories :@item.Calories</div>
+                        <p></p>
+                    }
                 }
             </div>
 
             <h2 id="MenuItem">Drinks</h2>
             <div>
-                @foreach (BleakwindBuffet.Data.Drinks.Drink d in BleakwindBuffet.Data.Menu.Drinks())
+                @foreach (BleakwindBuffet.Data.IOrderItem item in Model.MenuItems)
                 {
-                    <div id="Item3">@d.ToString()</div>
-                    <div id="Item3">Price: $@d.Price</div>
-                    <div id="Item3">Calories: @d.Calories</div>
+                    if (item is BleakwindBuffet.Data.Drinks.Drink)
+                    {
+                        <div id="Item3">@item.ToString()</div>
+                        <div id="Item3">Price: $@item.Price</div>
+                        <div id="Item3">Calories: @item.Calories</div>
+                        <p></p>
+                    }
                 }
             </div>
         </div>
     </div>
 
-</form>
+

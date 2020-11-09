@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using BleakwindBuffet.Data.Enums;
 using System.Linq;
+using System.Security.Claims;
 
 namespace BleakwindBuffet.Data
 {
@@ -100,7 +101,7 @@ namespace BleakwindBuffet.Data
 
             foreach(IOrderItem item in All)
             {
-                if (item.ToString() != null && item.ToString().ToLower().Contains(term))
+                if (item.ToString() != null && item.ToString().ToLower().Contains(term.ToLower()))
                 {
                     results.Add(item);
                 }
@@ -192,6 +193,43 @@ namespace BleakwindBuffet.Data
             }
             return results;
         }
+        /// <summary>
+        /// Filters by Type
+        /// </summary>
+        /// <param name="type">Type being passed througgh</param>
+        /// <param name="Item">Menu Item</param>
+        /// <returns></returns>
+        public static IEnumerable<IOrderItem> FilterByType(IEnumerable<string> MenuType, IEnumerable<IOrderItem> Menu)
+        {
+            if(MenuType == null || MenuType.Count() == 0)
+            {
+                return Menu;
+            }
 
+            List<IOrderItem> results = new List<IOrderItem>();
+
+            if(MenuType.Contains("Entrees"))
+            {
+                foreach(IOrderItem item in Menu)
+                {
+                    if(item is Entree)results.Add(item);
+                }
+            }
+            if (MenuType.Contains("Drinks"))
+            {
+                foreach (IOrderItem item in Menu)
+                {
+                    if (item is Drink) results.Add(item);
+                }
+            }
+            if (MenuType.Contains("Sides"))
+            {
+                foreach (IOrderItem item in Menu)
+                {
+                    if (item is Side) results.Add(item);
+                }
+            }
+            return results;
+        }
     }
 }
