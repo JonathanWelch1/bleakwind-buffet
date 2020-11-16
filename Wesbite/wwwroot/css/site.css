@@ -63,3 +63,11 @@ body {
     min-height: 50px;
 }
 
+
+@media(maxWidth: 490 px)
+{
+    .results{
+        float: none;
+        width: 100%;
+    }
+}

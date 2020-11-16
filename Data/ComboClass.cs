@@ -48,6 +48,10 @@ namespace BleakwindBuffet.Data
                 }
             }
         }
+        
+        public string Description
+        { get { return ""; } }
+
 
         public Drink Drink
         {

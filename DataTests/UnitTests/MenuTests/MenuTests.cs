@@ -8,6 +8,7 @@ using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.Data.Sides;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data;
+using System.Collections.Generic;
 
 namespace BleakwindBuffet.DataTests.UnitTests.MenuTests
 {
@@ -95,5 +96,115 @@ namespace BleakwindBuffet.DataTests.UnitTests.MenuTests
         }
 
 
+        [Fact]
+        public void ShouldCheckMaxNullCalorieFilter()
+        {
+            IEnumerable<IOrderItem> temp = Menu.Search("");
+            IEnumerable<IOrderItem> search = Menu.Calories(temp, 800, null);
+            Assert.Contains(search, (item) => { return item is DoubleDraugr;  });
+            Assert.Contains(search, (item) => { return item is ThalmorTriple; });
+            Assert.Contains(search, (item) => { return item is ThugsTBone; });
+
+        }
+
+        [Theory]
+        [InlineData(600, 800)]
+        public void ShouldReturnCorrectResultsForCalories(int? min, int? max)
+        {
+            IEnumerable<IOrderItem> temp = Menu.Search("");
+            IEnumerable<IOrderItem> search = Menu.Calories(temp, min, max);
+            Assert.Contains(search, (item) => { return item is BriarheartBurger; });
+            Assert.Contains(search, (item) => { return item is PhillyPoacher; });
+            Assert.Contains(search, (item) => { return item is SmokehouseSkeleton; });
+        }
+
+        [Fact]
+        public void ShouldCheckPrice()
+        {
+            IEnumerable<IOrderItem> temp = Menu.Search("");
+            IEnumerable<IOrderItem> search = Menu.Calories(temp, null, null);
+            Assert.Contains(search, (item) => { return item is BriarheartBurger; });
+        }
+
+        [Fact]
+        public void ShouldCheckMin()
+        {
+            IEnumerable<IOrderItem> temp = Menu.Search("");
+            IEnumerable<IOrderItem> search = Menu.Calories(temp, null, 2);
+            Assert.Contains(search, (item) => { return item.ToString().Equals("Small Warrior Water"); });
+            Assert.Contains(search, (item) => { return item.ToString().Equals("Medium Warrior Water"); });
+            Assert.Contains(search, (item) => { return item.ToString().Equals("Large Warrior Water"); });
+
+            Assert.Contains(search, (item) => { return item.ToString().Equals("Small Warrior Water"); });
+            Assert.Contains(search, (item) => { return item.ToString().Equals("Medium Warrior Water"); });
+            Assert.Contains(search, (item) => { return item.ToString().Equals("Large Warrior Water"); });
+        }
+
+        [Fact]
+        public void ShouldCheckMAxNullPrice()
+        {
+            IEnumerable<IOrderItem> temp = Menu.Search("");
+            IEnumerable<IOrderItem> search = Menu.Calories(temp, 5, null);
+            Assert.Contains(search, (item) => { return item is BriarheartBurger; });
+            Assert.Contains(search, (item) => { return item is PhillyPoacher; });
+            Assert.Contains(search, (item) => { return item is ThugsTBone; });
+            Assert.Contains(search, (item) => { return item is ThalmorTriple; });
+            Assert.Contains(search, (item) => { return item is SmokehouseSkeleton; });
+        }
+
+        [Theory]
+        [InlineData(0, 0.50)]
+        public void ShouldBeCorrectResultsPrice(double? min, double? max)
+        {
+           
+            IEnumerable<IOrderItem> temp = Menu.Search("");
+            IEnumerable<IOrderItem> search = Menu.Price(temp, min, max);
+
+            Assert.Contains(search, (item) => { return item.ToString().Equals("Small Dragonborn Waffle Fries"); });
+
+            Assert.Contains(search, (item) => { return item.ToString().Equals("Small Warrior Water"); });
+            Assert.Contains(search, (item) => { return item.ToString().Equals("Medium Warrior Water"); });
+            Assert.Contains(search, (item) => { return item.ToString().Equals("Large Warrior Water"); });
+
+        }
+
+        [Fact]
+        public void ShouldReturnCorrectType()
+        {
+            IEnumerable<IOrderItem> temp = Menu.Search("");
+            string[] t = new string[3];
+            t[0] = "Entrees";
+            IEnumerable<IOrderItem> temp2 = Menu.FilterByType(t, temp);
+            Assert.Contains(temp2, (item) => { return item is BriarheartBurger; });
+
+        }
+
+        [Fact]
+        public void ShouldReturnCorrectResultTypesForDrinks()
+        {
+            IEnumerable<IOrderItem> temp = Menu.Search("");
+            string[] t = new string[3];
+            t[0] = "Drinks";
+            IEnumerable<IOrderItem> temp2 = Menu.FilterByType(t, temp);
+
+            Assert.Contains(temp2, (item) => { return item.ToString().Equals("Small Warrior Water"); });
+            Assert.Contains(temp2, (item) => { return item.ToString().Equals("Medium Warrior Water"); });
+            Assert.Contains(temp2, (item) => { return item.ToString().Equals("Large Warrior Water"); });
+        }
+
+        [Fact]
+        public void ShouldReturnCorrectResultTypesForSides()
+        {
+            IEnumerable<IOrderItem> temp = Menu.Search("");
+            string[] t = new string[3];
+            t[0] = "Sides";
+            IEnumerable<IOrderItem> temp2 = Menu.FilterByType(t, temp);
+
+            Assert.Contains(temp2, (item) => { return item.ToString().Equals("Small Dragonborn Waffle Fries"); });
+            Assert.Contains(temp2, (item) => { return item.ToString().Equals("Medium Dragonborn Waffle Fries"); });
+            Assert.Contains(temp2, (item) => { return item.ToString().Equals("Large Dragonborn Waffle Fries"); });
+        }
     }
+
+
 }

@@ -137,6 +137,8 @@ namespace BleakwindBuffet.Data.Drinks
                 return Size.ToString() + " Candlehearth Coffee";
             } 
         }
+
+        public override string Description { get { return "Fair trade, fresh ground dark roast coffee."; } }
     }
 
 }
